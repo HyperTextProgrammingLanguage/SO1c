@@ -33,3 +33,5 @@ En af de største erfaringer fra projektet var at arbejde med GitHub. Det gav mi
 Projektet har givet mig en dybere forståelse for, hvordan man kan bruge programmering til at simulere komplekse systemer som trafikflow. Jeg har fået erfaring med både teknisk programmering og samarbejde via GitHub, hvilket har været værdifuldt for min udvikling som programmør. Selvom simuleringen er enkel, har den givet mig en solid base for at arbejde med større og mere komplekse systemer i fremtiden.
 
 At gøre koden tilgængelig på GitHub har også åbnet op for muligheden for, at andre kan bidrage og videreudvikle projektet. Det har været et godt eksempel på, hvordan samarbejde og åbenhed kan føre til bedre resultater. Jeg håber, at mit projekt vil kunne bruges som grundlag for videre forskning og udvikling inden for trafikoptimering og simulering.
+
+Souce - [Chatgpt](https://chatgpt.com/)
