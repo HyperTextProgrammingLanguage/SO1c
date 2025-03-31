@@ -21,8 +21,8 @@ function draw() {
   bil3.tjekBilForan(bil2);
   bil4.tjekBilForan(bil3);
   bil5.tjekBilForan(bil4);
-  if(bil1.velocity.x < 1 )
-    bil1.velocity.x *= 1.005
+  //if(bil1.velocity.x < 1 )
+  //  bil1.velocity.x *= 1.005
   
   fill(240);
   rect(-10, height/2-20, width+10, 60);
@@ -36,24 +36,34 @@ function draw() {
 }
 
 function keyPressed(){
-  if(key === 'a') //stop bil -0.3
-  bil1.velocity.x -= 0.3;
-  if(key === 'd') //start bil +0.3
-    bil1.velocity.x += 0.3;
+  if(key === 'a') //stop bil -0.2
+  bil1.velocity.x -= 0.2;
+  if(key === 'd') //start bil +0.2
+    bil1.velocity.x += 0.2;
   if(key === 's') //stop bil
     bil1.velocity.x = 0;
   if(key === 'w') //start bil
     bil1.velocity.x = 1;
-  if(key == 'r') //animation af kø
-      bil2.velocity.x = 1;
-    setTimeout(() => {
-      bil3.velocity.x = 1;
-    }, 300);
-    setTimeout(() => {
-      bil4.velocity.x = 1;
-    }, 600);
-    setTimeout(() => {
-      bil5.velocity.x = 1;
-    }, 900);
-}
+    if(key == 'r') { //animation af kø
+    let velocity = 1;
+    let deceleration = 0.1;
 
+    const intervalIda = setInterval(() => {
+      velocity -= deceleration; // Reducer farten
+      if (velocity <= 0) {
+        velocity = 0; // Stop farten ved 0
+        clearInterval(intervalIda); // Stop intervallet når farten når 0
+      }
+      bil1.velocity.x = velocity; // Opdater bilens fart
+    }, 10); // Kør hver 100 ms
+
+    const intervalIdb = setInterval(() => {
+      velocity += deceleration; // Reducer farten
+      if (velocity >= 1) {
+        velocity = 1; // Stop farten ved 0
+        clearInterval(intervalIdb); // Stop intervallet når farten når 0
+      }
+      bil1.velocity.x = velocity; // Opdater bilens fart
+    }, 30); // Efter 5 sekunder
+  }
+}
