@@ -1,8 +1,9 @@
 let biler = [];  
 let antalBiler = 20;  
+let width = screen.width;
 
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(width, 400);
   frameRate(50); 
   strokeWeight(2);
 
