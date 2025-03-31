@@ -1,17 +1,24 @@
-let bil1, bil2, bil3, bil4, bil5;
+let biler = [];  
+let antalBiler = 7;  
+
 function setup() {
   createCanvas(800, 400);
-  frameRate(60); strokeWeight(2);
-  bil1 = new Car("silver", createVector(75,200), createVector(1,0));
-  bil2 = new Car("gold",createVector(0,200), createVector(1,0));
-  bil3 = new Car("black",createVector(-75,200), createVector(1,0));
-  bil4 = new Car("blue",createVector(-150,200), createVector(1,0));
-  bil5 = new Car("silver", createVector(-225,200), createVector(1,0));
+  frameRate(50); 
+  strokeWeight(2);
+
+  // Opret biler baseret på antalBiler
+  for (let i = 0; i < antalBiler; i++) {
+    let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
+    let position = createVector(-75 * i, 200);  // Placer biler med afstand
+    let hastighed = createVector(1, 0);
+    biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
+  }
 }
 
 function draw() {
   background("#247B28");
     
+<<<<<<< HEAD
   bil1.update();
   bil2.update();
   bil3.update();
@@ -67,3 +74,27 @@ function keyPressed(){
     }, 30); // Efter 5 sekunder
   }
 }
+=======
+  for (let i = 0; i < biler.length; i++) {
+    biler[i].update();  // Opdater bilen
+    if (i > 0) {
+      biler[i].tjekBilForan(biler[i-1]);  // Tjek om bilen foran er for tæt på
+    }
+  }
+
+  if(biler[0].velocity.x < 1)
+    biler[0].velocity.x *= 1.005;
+  
+  fill(240);
+  rect(-10, height/2-20, width+10, 60);
+
+  for (let i = 0; i < biler.length; i++) {
+    biler[i].display();
+  }
+}
+
+function keyPressed(){
+  if(key === 'a')
+    biler[0].velocity.x -= 0.3;  // Juster hastigheden på den første bil
+}
+>>>>>>> e9050f8fa0021c83a7f80d3a25425958bc5dbb66
