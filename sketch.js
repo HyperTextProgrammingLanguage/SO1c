@@ -1,5 +1,5 @@
 let biler = [];  
-let antalBiler = 7;  
+let antalBiler = 20;  
 
 function setup() {
   createCanvas(800, 400);
@@ -56,7 +56,7 @@ function keyPressed(){
         clearInterval(intervalIda); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
-    }, 10); // Kør hver 100 ms
+    }, 30); // Kør hver 100 ms
 
     const intervalIdb = setInterval(() => {
       velocity += deceleration; // Reducer farten
@@ -65,6 +65,6 @@ function keyPressed(){
         clearInterval(intervalIdb); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
-    }, 30); // Efter 5 sekunder
+    }, 90); // Efter 5 sekunder
   }
 }
