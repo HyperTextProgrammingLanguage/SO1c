@@ -13,7 +13,9 @@ class Car {
   tjekBilForan(bilForan) {
     const minSafeDistance = 50; // Minimum safe distance between cars
     const reactionDistance = 75; // Distance to start reacting
-    const brakingFactor = 0.9; // Factor to reduce velocity when braking
+    const brakingFactor = 0.8; // Factor to reduce velocity when braking
+    const accelerationFactor = 0.05; // Factor to gradually increase velocity
+    const bufferDistance = 10; // Buffer zone to prevent oscillation
   
     const distanceToCarInFront = bilForan.position.x - this.position.x;
   
@@ -34,12 +36,15 @@ class Car {
       }
     } else if (this.fare) {
       // Check if the path is clear again
-      if (distanceToCarInFront > reactionDistance) {
-        if (this.velocity.x < 1) this.velocity.x *= 2; // Accelerate again
-        if (this.velocity.x === 0) this.velocity.x += 0.5;
-        else this.fare = false; // Resume normal speed
-      } else {
-        this.velocity.x *= brakingFactor; // Gradually slow down
+      if (distanceToCarInFront > reactionDistance + bufferDistance) {
+        // Gradually accelerate instead of jumping
+        this.velocity.x += accelerationFactor;
+        if (this.velocity.x >= bilForan.velocity.x) {
+          this.fare = false; // Resume normal speed
+        }
+      } else if (distanceToCarInFront < reactionDistance - bufferDistance) {
+        // Gradually slow down
+        this.velocity.x *= brakingFactor;
       }
     }
   }
