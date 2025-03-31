@@ -52,4 +52,3 @@ class Car {
     rect(this.position.x, this.position.y, 30, 20, 5);
   }
 }
-
