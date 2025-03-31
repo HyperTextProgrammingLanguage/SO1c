@@ -1,3 +1,10 @@
+let bmwImage; // Variable to hold the BMW image
+
+function preload() {
+  // Load the BMW image (replace with the path to your own image or URL)
+  bmwImage = loadImage("image.png");  // Use your own image URL or local path
+}
+
 class Car {
   constructor(cColor, pos, vel) {
     this.color = cColor;
@@ -55,7 +62,8 @@ class Car {
       fill(200,0,0);
     else
     fill(this.color);
-    rect(this.position.x-5, this.position.y+2, 40, 16, 5);
-    rect(this.position.x, this.position.y, 30, 20, 5);
+    /*rect(this.position.x-5, this.position.y+2, 40, 16, 5);
+    rect(this.position.x, this.position.y, 30, 20, 5);*/
+    image(bmwImage, this.position.x, this.position.y, 80, 40);
   }
 }
