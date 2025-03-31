@@ -18,7 +18,7 @@ class Car {
   }
 
   tjekBilForan(bilForan) {
-    if (bilForan.position.x - this.position.x < 45){
+    if (bilForan.position.x - this.position.x < 70){
       this.velocity.x = 0;
       return;
     }
@@ -35,7 +35,7 @@ class Car {
     else if (this.fare == true) {
       // er der fri bane igen?
       
-      if (bilForan.position.x - this.position.x > 120) {
+      if (bilForan.position.x - this.position.x > 75) {
         if (this.velocity.x < 1) 
           this.velocity.x *= 1.04; // accelerer igen lidt
         /*if (this.velocity.x < 0.3) {
