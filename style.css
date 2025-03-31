@@ -9,3 +9,9 @@ canvas {
 #titel {
 	font-family: sans-serif, serif;
 }
+
+.text {
+  font-family: sans-serif, serif;
+  line-height: 50%;
+  margin-left: 1%;
+}

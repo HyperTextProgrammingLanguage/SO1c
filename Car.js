@@ -22,7 +22,7 @@ class Car {
       this.velocity.x = 0;
       return;
     }
-    if (bilForan.position.x - this.position.x < 75 && this.fare == false) {
+    if (bilForan.position.x - this.position.x < 120 && this.fare == false) {
       this.reaktion = true;
       this.fare = true;
       this.timer = millis(); // reaktionstid start
@@ -35,7 +35,7 @@ class Car {
     else if (this.fare == true) {
       // er der fri bane igen?
       
-      if (bilForan.position.x - this.position.x > 75) {
+      if (bilForan.position.x - this.position.x > 120) {
         if (this.velocity.x < 1) 
           this.velocity.x *= 1.04; // accelerer igen lidt
         /*if (this.velocity.x < 0.3) {
@@ -64,6 +64,6 @@ class Car {
     fill(this.color);
     /*rect(this.position.x-5, this.position.y+2, 40, 16, 5);
     rect(this.position.x, this.position.y, 30, 20, 5);*/
-    image(bmwImage, this.position.x, this.position.y, 80, 40);
+    image(bmwImage, this.position.x, this.position.y, 120, 80);
   }
 }
