@@ -9,3 +9,30 @@ canvas {
 #titel {
 	font-family: sans-serif, serif;
 }
+
+.header {
+  padding-left: 20px;
+  padding: 0;
+  margin: 20px 20px 20px 20px;
+}
+  #info {
+    margin: 20px 20px 0 20px;
+  }
+
+#flexContainer {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#StoppedCars {
+  padding-left: 20px;
+  margin: 0 0 0 0;
+}
+
+#allSpeeds {
+  margin: -20px 20px 0 -20px;
+  list-style-type: none;
+  column-count: 20;
+  column-width: 90px;
+  width: fit-content;
+}
