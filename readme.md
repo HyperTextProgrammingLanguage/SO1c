@@ -34,4 +34,4 @@ Projektet har givet mig en dybere forståelse for, hvordan man kan bruge program
 
 At gøre koden tilgængelig på GitHub har også åbnet op for muligheden for, at andre kan bidrage og videreudvikle projektet. Det har været et godt eksempel på, hvordan samarbejde og åbenhed kan føre til bedre resultater. Jeg håber, at mit projekt vil kunne bruges som grundlag for videre forskning og udvikling inden for trafikoptimering og simulering.
 
-Souce - [Chatgpt](https://chatgpt.com/)
+Souce - Kjullu
