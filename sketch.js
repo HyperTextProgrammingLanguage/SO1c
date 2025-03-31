@@ -5,7 +5,7 @@ let width = screen.width;
 function setup() {
   createCanvas(width, 400);
   frameRate(50); 
-  strokeWeight(2);
+  strokeWeight(2); 
 
   // Opret biler baseret på antalBiler
   for (let i = 0; i < antalBiler; i++) {
@@ -18,7 +18,7 @@ function setup() {
 
 function draw() {
   background("#247B28");
- 
+
   for (let i = 0; i < biler.length; i++) {
     biler[i].update();  // Opdater bilen
     if (i > 0) {
@@ -35,7 +35,8 @@ function draw() {
   for (let i = 0; i < biler.length; i++) {
     biler[i].display();
   }
-  document.getElementById("points").textContent = "Speed: " + bil1.velocity.x.toFixed(2); //Shows speed of bil1
+
+  document.getElementById("points").textContent = "Speed: " + biler[0].velocity.x.toFixed(2);
 }
 
 function keyPressed(){
