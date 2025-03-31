@@ -1,3 +1,6 @@
+# Info
+[Original code](https://editor.p5js.org/mortenTEC/sketches/_2QjZTMeJ) by [mortenTEC](https://editor.p5js.org/mortenTEC/sketches)
+
 # Gyatthub projekt
 
 ## Forord
