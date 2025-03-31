@@ -2,7 +2,7 @@
 [Original code](https://editor.p5js.org/mortenTEC/sketches/_2QjZTMeJ) by [mortenTEC](https://editor.p5js.org/mortenTEC/sketches)
 
 ## Get working
-You may need [p5.vscode](https://marketplace.visualstudio.com/items?itemName=samplavigne.p5-vscode) to get it to run localy, if so follow [this](https://p5js.org/tutorials/setting-up-your-environment/) guide and go down to "Using VS Code".
+You may need [p5.vscode](https://p5js.org/tutorials/setting-up-your-environment/) to get it to run localy.
 
 # Gyatthub projekt
 
