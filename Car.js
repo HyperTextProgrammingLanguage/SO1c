@@ -11,31 +11,37 @@ class Car {
   }
 
   tjekBilForan(bilForan) {
-    if (bilForan.position.x - this.position.x < 45){
+    const minSafeDistance = 50; // Minimum safe distance between cars
+    const reactionDistance = 75; // Distance to start reacting
+    const brakingFactor = 0.9; // Factor to reduce velocity when braking
+  
+    const distanceToCarInFront = bilForan.position.x - this.position.x;
+  
+    if (distanceToCarInFront < minSafeDistance) {
+      // Too close to the car in front, stop completely
       this.velocity.x = 0;
       return;
     }
-    if (bilForan.position.x - this.position.x < 75 && this.fare == false) {
+  
+    if (distanceToCarInFront < reactionDistance && !this.fare) {
+      // Start reacting if within reaction distance
       this.reaktion = true;
       this.fare = true;
-      this.timer = millis(); // reaktionstid start
-    } 
-    else if (this.reaktion == true) {
+      this.timer = millis(); // Start reaction timer
+    } else if (this.reaktion) {
       if (millis() - this.reaktionstid > this.timer) {
-        this.reaktion = false; // reaktionstid slut
+        this.reaktion = false; // End reaction time
       }
-    } 
-    else if (this.fare == true) {
-      // er der fri bane igen?
-      if (bilForan.position.x - this.position.x > 75) {
-        if (this.velocity.x < 1) 
-          this.velocity.x *= 1.04; // accelerer igen lidt
-        else 
-          this.fare = false;  // fart på 1, og fare væk
+    } else if (this.fare) {
+      // Check if the path is clear again
+      if (distanceToCarInFront > reactionDistance) {
+        if (this.velocity.x < 1) this.velocity.x *= 2; // Accelerate again
+        if (this.velocity.x === 0) this.velocity.x += 0.5;
+        else this.fare = false; // Resume normal speed
+      } else {
+        this.velocity.x *= brakingFactor; // Gradually slow down
       }
-      else
-        this.velocity.x *= 0.99; // bremser lidt per frame
-   }
+    }
   }
 
   update() {

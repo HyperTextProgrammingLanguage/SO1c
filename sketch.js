@@ -1,5 +1,5 @@
 let biler = [];  
-let antalBiler = 20;  
+let antalBiler = 50;  
 let width = screen.width;
 
 function setup() {
@@ -10,7 +10,7 @@ function setup() {
   // Opret biler baseret på antalBiler
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(-75 * i, 200);  // Placer biler med afstand
+    let position = createVector(-75 * i+1000, 200);  // Placer biler med afstand
     let hastighed = createVector(1, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
