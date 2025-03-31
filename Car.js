@@ -27,13 +27,15 @@ class Car {
     } 
     else if (this.fare == true) {
       // er der fri bane igen?
+      
       if (bilForan.position.x - this.position.x > 75) {
         if (this.velocity.x < 1) 
           this.velocity.x *= 1.04; // accelerer igen lidt
-        else if (this.velocity.x === 0) {
-          this.velocity.x += 0.1;
-        }
-        else 
+        /*if (this.velocity.x < 0.3) {
+          console.log("AJJAJA");
+          this.velocity.x += 0.3;
+        }*/
+        else
           this.fare = false;  // fart på 1, og fare væk
       }
       else
@@ -41,6 +43,8 @@ class Car {
    }
   }
 
+
+  
   update() {
     // føj hastighed til position
     this.position.add(this.velocity);
