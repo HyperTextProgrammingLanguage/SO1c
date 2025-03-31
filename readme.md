@@ -1,8 +1,8 @@
 # Info
 [Original code](https://editor.p5js.org/mortenTEC/sketches/_2QjZTMeJ) by [mortenTEC](https://editor.p5js.org/mortenTEC/sketches)
 
-## Get working
-You may need [p5.vscode](https://p5js.org/tutorials/setting-up-your-environment/) to get it to run localy.
+## Libraries
+P5.js [p5.vscode](https://p5js.org/tutorials/setting-up-your-environment/) is required.
 
 # Gyatthub projekt
 
