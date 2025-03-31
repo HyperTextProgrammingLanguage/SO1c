@@ -35,6 +35,7 @@ function draw() {
   for (let i = 0; i < biler.length; i++) {
     biler[i].display();
   }
+  document.getElementById("points").textContent = "Speed: " + bil1.velocity.x.toFixed(2); //Shows speed of bil1
 }
 
 function keyPressed(){
