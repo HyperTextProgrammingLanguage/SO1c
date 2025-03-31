@@ -4,7 +4,7 @@ let width = screen.width;
 
 function setup() {
   createCanvas(width, 400);
-  frameRate(50); 
+  frameRate(60); 
   strokeWeight(2); 
 
   // Opret biler baseret på antalBiler
@@ -36,7 +36,26 @@ function draw() {
     biler[i].display();
   }
 
-  document.getElementById("points").textContent = "Speed: " + biler[0].velocity.x.toFixed(2);
+  const allSpeedsElement = document.getElementById("allSpeeds");
+  const StoppedCarsElement = document.getElementById("StoppedCars");
+  allSpeedsElement.innerHTML = ""; // Ryd listen
+  StoppedCarsElement.innerHTML = ""; // Ryd P
+  
+  // Count how many cars are stopped
+  const stoppedCarsCount = biler.filter(bil => bil.velocity.x === 0).length;
+  
+  // Display the count of stopped cars
+  StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
+
+  
+  biler.forEach((bil, index) => {
+    const li = document.createElement("li");
+    li.textContent = `Bil${index+1}: ${bil.velocity.x.toFixed(2)}`;
+    if (bil.velocity.x < 0.5) {
+      li.style.backgroundColor = "#ff0000";
+    }
+    allSpeedsElement.appendChild(li);
+  });
 }
 
 function keyPressed(){
@@ -49,25 +68,29 @@ function keyPressed(){
   if(key === 'w') //start bil
     biler[0].velocity.x = 1;
   if(key == 'r') { //animation af kø
-    let velocity = 1;
-    let deceleration = 0.1;
+    let velocity = 1; //start fart
+    let minFart = 0.4; //Den laveste fart som bilen når
+    let deceleration = 0.1; //Hvor meget bilen decelererer
+    let acceleration = 0.1; //Hvor meget bilen accelererer
+    let accelerationInterval = 120; //Hvor hurtigt bilen starter
+    let decelerationInterval = 30; //Hvor hurtigt bilen stopper
 
     const intervalIda = setInterval(() => {
       velocity -= deceleration; // Reducer farten
-      if (velocity <= 0) {
-        velocity = 0; // Stop farten ved 0
+      if (velocity <= minFart) {
+        velocity = minFart; // Stop nedsænkning
         clearInterval(intervalIda); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
-    }, 30); // Kør hver 100 ms
+    }, decelerationInterval); // Kør hver x ms
 
     const intervalIdb = setInterval(() => {
-      velocity += deceleration; // Reducer farten
+      velocity += acceleration; // Reducer farten
       if (velocity >= 1) {
         velocity = 1; // Stop farten ved 0
         clearInterval(intervalIdb); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
-    }, 90); // Efter 5 sekunder
+    }, accelerationInterval); // Efter 5 sekunder
   }
 }
