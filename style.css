@@ -5,3 +5,7 @@ html, body {
 canvas {
   display: block;
 }
+
+#titel {
+	font-family: sans-serif, serif;
+}
