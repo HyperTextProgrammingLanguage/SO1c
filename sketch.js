@@ -2,7 +2,7 @@ let bil1, bil2, bil3, bil4;
 function setup() {
   createCanvas(800, 400);
   frameRate(50); strokeWeight(2);
-  bil1 = new Car("silver", createVector(75,200), createVector(1,0));
+  bil1 = new Car("silver", createVector(75,200), createVector(1,0)); // Laver objekter af klassen "Car"
   bil2 = new Car("gold",createVector(0,200), createVector(1,0));
   bil3 = new Car("black",createVector(-75,200), createVector(1,0));
   bil4 = new Car("blue",createVector(-150,200), createVector(1,0));
