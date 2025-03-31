@@ -7,7 +7,7 @@ class Car {
     this.fare = false;
     this.reaktion = false;
     this.timer = millis();
-    this.reaktionstid = 750;
+    this.reaktionstid = 250;
   }
 
   tjekBilForan(bilForan) {
@@ -30,6 +30,9 @@ class Car {
       if (bilForan.position.x - this.position.x > 75) {
         if (this.velocity.x < 1) 
           this.velocity.x *= 1.04; // accelerer igen lidt
+        else if (this.velocity.x === 0) {
+          this.velocity.x += 0.1;
+        }
         else 
           this.fare = false;  // fart på 1, og fare væk
       }
