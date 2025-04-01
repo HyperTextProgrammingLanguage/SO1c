@@ -1,5 +1,6 @@
 let biler = [];
 let antalBiler = 0;
+const maxSpeed = 10;
 
 
 let userInput = prompt("Antal biler: ");
@@ -20,8 +21,8 @@ function setup() {
   // Opret biler baseret på antalBiler
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(-100 * i+100, 170);  // Placer biler med afstand
-    let hastighed = createVector(1, 0);
+    let position = createVector(-100 * i+1000, 170);  // Placer biler med afstand
+    let hastighed = createVector(maxSpeed, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
 }
@@ -36,7 +37,7 @@ function draw() {
     }
   }
 
-  if(biler[0].velocity.x < 1)
+  if(biler[0].velocity.x < maxSpeed)
     biler[0].velocity.x *= 1.005;
   
   fill(240);

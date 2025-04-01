@@ -1,5 +1,7 @@
 let bmwImage; // Variable to hold the BMW image
 
+const maxSpeed = 2;
+
 function preload() {
   // Load the BMW image (replace with the path to your own image or URL)
   bmwImage = loadImage("image.png");  // Use your own image URL or local path
@@ -19,7 +21,7 @@ class Car {
 
   tjekBilForan(bilForan) {
     const minSafeDistance = 80; // Minimum safe distance between cars
-    const reactionDistance = 100; // Distance to start reacting
+    const reactionDistance = 260; // Distance to start reacting
     const brakingFactor = 0.8; // Factor to reduce velocity when braking
     const accelerationFactor = 0.05; // Factor to gradually increase velocity
     const bufferDistance = 10; // Buffer zone to prevent oscillation
@@ -37,8 +39,8 @@ class Car {
       this.reaktion = true;
       this.fare = true;
       this.timer = millis(); // Start reaction timer
-      if (this.velocity.x > 1) {
-        this.velocity.x = 1; // Stop the car
+      if (this.velocity.x > maxSpeed) {
+        this.velocity.x = maxSpeed; // Stop the car
       }
     
     } else if (this.reaktion) {
