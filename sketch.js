@@ -1,27 +1,28 @@
+// Constants and variables
 let biler = [];
 let antalBiler = 0;
 let fpsUpdateInterval = 10; // Update FPS every 30 frames
 let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
 let maxSpeed = 1;
+let width = screen.width;
 let startSted = 0;
 
+
+// User can choose number of cars
 let userInput = prompt("Antal biler: ");
 if (userInput === null || isNaN(userInput) || userInput === "") {
-  antalBiler = 20;  // Set default to 20 if the input is invalid or canceled
+  antalBiler = 20;  // Invalid input = 20 cars
 } else {
   antalBiler = parseInt(userInput);
 }
-
-let width = screen.width;
-
 
 function setup() {
   createCanvas(width, 400);
   frameRate(60); 
   strokeWeight(2); 
 
-  // Opret biler baseret på antalBiler
+  // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
     let position = createVector(-100 * i+startSted, 170);  // Placer biler med afstand
@@ -30,46 +31,47 @@ function setup() {
   }
 }
 
-function draw() {
+function draw() { // This function runs constantly
   background("#247B28");
 
   for (let i = 0; i < biler.length; i++) {
-    biler[i].update();  // Opdater bilen
+    biler[i].update();  // Update car
     if (i > 0) {
-      biler[i].tjekBilForan(biler[i-1]);  // Tjek om bilen foran er for tæt på
+      biler[i].tjekBilForan(biler[i-1]);  // Check if car in front is too close
     }
   }
 
-  if(biler[0].velocity.x < maxSpeed) {
+  if(biler[0].velocity.x < maxSpeed) { // If the car is not at max speed, increase speed
     biler[0].velocity.x *= 1.005;
   }
   
   fill(240);
-  rect(-10, height/2-20, width+10, 60);
+  rect(-10, height/2-20, width+10, 60); // Draw road
 
   for (let i = 0; i < biler.length; i++) {
     biler[i].display();
   }
 
+  // This section enables displaying of car information.
+  // Here HTML text elements are imported (these text elements displat the car info)
   const allSpeedsElement = document.getElementById("allSpeeds");
   const StoppedCarsElement = document.getElementById("StoppedCars");
-  const CompletedCarsElement = document.getElementById("CarsRight");
-  const AwaitingCarsElement = document.getElementById("CarsLeft");
+  const CompletedCarsElement = document.getElementById("CarsRight"); // Number of cars that are outside of the screen to the right
+  const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
   
-  // Count how many cars are stopped
-
+  // Count how many cars are stopped and outside the screen.
   const stoppedCarsCount = biler.filter(bil => bil.velocity.x < 0.25).length;
   const completedCarsCount = biler.filter(bil => bil.position.x >= width).length;
   const awaitingCarsCount = biler.filter(bil => bil.position.x <= 0).length;
 
-  
-  // Display the count of stopped cars
+  // Display the count of stopped cars and cars outside the screen
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
   CompletedCarsElement.textContent = "Biler der er kommet igennem: " + completedCarsCount;
   AwaitingCarsElement.textContent = "Biler der ikke er kommet ind på banen endnu: " + awaitingCarsCount;
   
+  // Show slow/stopped cars as red
   biler.forEach((bil, index) => {
     const li = document.createElement("li");
     li.textContent = `Bil${index+1}: ${bil.velocity.x.toFixed(2)}`;
@@ -82,7 +84,8 @@ function draw() {
     allSpeedsElement.appendChild(li);
   });
 
-  // Update frame rate display every `fpsUpdateInterval` frames
+
+  // This section enables the user to see FPSs
   if (frameCounter % fpsUpdateInterval === 0) {
     lastFPS = frameRate().toFixed(0); // Update the stored FPS value
   }
@@ -91,10 +94,10 @@ function draw() {
   fill(255);
   textSize(16);
   text(`FPS: ${lastFPS}`, 10, 20); // Show FPS in the top-left corner
-
   frameCounter++; // Increment the frame counter
 }
 
+// Register key presses
 function keyPressed(){
   if(key === 'a') //stop bil -0.2
     biler[0].velocity.x -= 0.2;
