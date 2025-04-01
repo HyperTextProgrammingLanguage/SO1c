@@ -1,6 +1,6 @@
 let bmwImage; // Variable to hold the BMW image
 
-const maxSpeed = 2;
+//const maxSpeed = 2;
 
 function preload() {
   // Load the BMW image (replace with the path to your own image or URL)
@@ -39,8 +39,8 @@ class Car {
       this.reaktion = true;
       this.fare = true;
       this.timer = millis(); // Start reaction timer
-      if (this.velocity.x > maxSpeed) {
-        this.velocity.x = maxSpeed; // Stop the car
+      if (this.velocity.x > 1) {
+        this.velocity.x = 1; // Stop the car
       }
     
     } else if (this.reaktion) {

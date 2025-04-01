@@ -1,6 +1,6 @@
 let biler = [];
 let antalBiler = 0;
-const maxSpeed = 10;
+let maxSpeed = 5;
 
 
 let userInput = prompt("Antal biler: ");
