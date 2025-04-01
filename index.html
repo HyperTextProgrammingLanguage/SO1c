@@ -22,27 +22,37 @@
       <center>
         <h1 id="titel">Kø-Simulation⁵⁰⁰⁰</h1>
       </center>
-
     </header>
-    <main>
+    <div id="sketch-container"></div>
+    <script src="Car.js"></script>
+    <script src="sketch.js"></script>
+      <div id="canvas"></div>
       <div class="text">
         <div>
           <h1 class="header">Taster</h1>
-          <p>A for at bremse</p>
-          <p>S for at stoppe med det samme</p>
-          <p>W for at starte</p>
+            <p><b>E</b>: Simulere et stop for bil1</p>
+            <p><b>D/Højre pil</b>: Sender alle biler frem</p>
+            <p><b>A/Venstre pil</b>: Sender alle biler tilbage</p>
+            <p><b>W</b>: Start bil1</p>
+            <p><b>S</b>: Stop bil1</p>
+            <p><b>R</b>: Genstart simulation</p>
         </div>
         <div>
-          <h1 id="info" class="header">Info</h1>
-          <p id="StoppedCars">piss</p>
-          <p id="CarsRight">Biler til højre for skærmen</p>
-          <p id="CarsLeft"></p>
-          <h2 class="header" id="h2">Alle biler</h2>
-          <ul id="allSpeeds"></ul>
+          <h1 class="header">Info</h1>
+            <p id="StoppedCars">StoppedCars</p>
+            <p id="CarsRunning">CarsRunning</p>
+            <p id="CarsRight">Biler til højre for skærmen</p>
+            <p id="CarsLeft">Biler til venstre for skærmen</p>
+          <h1 class="header">Alle biler</h2>
+            <ul id="allSpeeds"></ul>
         </div>
       </div>
     </main>
-    <script src="Car.js"></script>
-    <script src="sketch.js"></script>
+    <h1 class="header" style="margin: 0% 0% 0% 2%;">Links</h1>
+    <div id="flexContainer">
+      <a class="text" target="_blank" id="link" href="readme.md">Readme.md</a>
+      <a class="text" target="_blank" id="link" href="https://github.com/HyperTextProgrammingLanguage/SO1c">Github</a>
+      <a class="text" target="_blank" id="link" href="https://www.press.bmwgroup.com/global">BMW-billede</a>
+    </div>
   </body>
 </html>
