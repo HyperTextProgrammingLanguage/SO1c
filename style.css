@@ -10,14 +10,6 @@ canvas {
 	font-family: sans-serif, serif;
 }
 
-.header {
-  padding-left: 20px;
-  padding: 0;
-  margin: 20px 20px 20px 20px;
-}
-  #info {
-    margin: 20px 20px 0 20px;
-  }
 
 #flexContainer {
   display: flex;
@@ -25,19 +17,28 @@ canvas {
 }
 
 #StoppedCars {
-  padding-left: 20px;
   margin: 0 0 0 0;
 }
 
 #allSpeeds {
-  margin: -20px 20px 0 -20px;
   list-style-type: none;
   column-count: 20;
   column-width: 90px;
   width: fit-content;
+  line-height: 100%;
 }
 .text {
   font-family: sans-serif, serif;
   line-height: 50%;
   margin-left: 1%;
+}
+
+.header {
+  padding: 0;
+  font-size: 120%;
+}
+
+#h2 {
+  margin-top: 1%;
+  font-size: 100%;
 }
