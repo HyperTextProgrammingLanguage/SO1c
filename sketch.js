@@ -60,18 +60,23 @@ function draw() { // This function runs constantly
   const StoppedCarsElement = document.getElementById("StoppedCars");
   const CompletedCarsElement = document.getElementById("CarsRight"); // Number of cars that are outside of the screen to the right
   const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
+  const runningCarsElement = document.getElementById("CarsRunning"); // Number of cars that are outside of the screen to the left
+
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
+  runningCarsElement.innerHTML = ""; // Ryd
   
   // Count how many cars are stopped and outside the screen.
   const stoppedCarsCount = biler.filter(bil => bil.velocity.x < 0.25).length;
   const completedCarsCount = biler.filter(bil => bil.position.x >= width).length;
   const awaitingCarsCount = biler.filter(bil => bil.position.x <= 0).length;
+  const runningCarsCoundt = biler.filter(bil => bil.velocity.x === 1).length;
 
   // Display the count of stopped cars and cars outside the screen
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
-  CompletedCarsElement.textContent = "Biler der er kommet igennem: " + completedCarsCount;
-  AwaitingCarsElement.textContent = "Biler der ikke er kommet ind på banen endnu: " + awaitingCarsCount;
+  CompletedCarsElement.textContent = "Biler som er kør hele vejen: " + completedCarsCount;
+  AwaitingCarsElement.textContent = "Biler som ikke er kommet ind endnu: " + awaitingCarsCount;
+  runningCarsElement.textContent = "Biler som er i gang: " + runningCarsCoundt;
   
   // Show slow/stopped cars as red
   biler.forEach((bil, index) => {
@@ -101,29 +106,29 @@ function draw() { // This function runs constantly
 
 // Register key presses
 function keyPressed(){
-  if(key === 'a') //stop bil -0.2
-    biler[0].velocity.x -= 0.2;
-  if(key === 'd') //start bil +0.2
-    biler[0].velocity.x += 0.2;
+//  if(key === 'a') //stop bil -0.2
+//    biler[0].velocity.x -= 0.2;
+//  if(key === 'd') //start bil +0.2
+//    biler[0].velocity.x += 0.2;
   if(key === 's') //stop bil
     biler[0].velocity.x = 0;
   if(key === 'w') //start bil
     biler[0].velocity.x = 1;
-  if(key === 'l'){
+  if (keyCode === RIGHT_ARROW || key === 'd') {
     for (let i = 0; i < biler.length; i++) 
       biler[i].position.x += startSted;
-    }
-  if(key === 'k'){
+  }
+  if (keyCode === LEFT_ARROW || key === 'a') {
     for (let i = 0; i < biler.length; i++) 
       biler[i].position.x -= startSted;
-    }
-  if(key === 'i'){
+  }
+  if(key === 'r'){
     for (let i = 0; i < biler.length; i++) {
       biler[i].position.x = bilAfstand * i; // Reset each car's position
       biler[i].velocity.x = maxSpeed; // Optionally reset the speed to maxSpeed
     }
   }
-  if(key == 'r') { //animation af kø
+  if (key === 'e') { //animation af kø
     let velocity = 1; //start fart
     let minFart = 0.4; //Den laveste fart som bilen når
     let deceleration = 0.2; //Hvor meget bilen decelererer
