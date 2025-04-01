@@ -6,7 +6,7 @@ let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
 let maxSpeed = 1;
 let width = screen.width;
-let startSted = 0;
+let startSted = width/2;
 
 
 // User can choose number of cars
@@ -22,7 +22,6 @@ function setup() {
   myCanvas.parent("canvas");
   frameRate(60); 
   strokeWeight(2); 
-
 
   // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
@@ -109,10 +108,13 @@ function keyPressed(){
     biler[0].velocity.x = 0;
   if(key === 'w') //start bil
     biler[0].velocity.x = 1;
-  if(key === 'p'){
-    startSted += 1000;
+  if(key === 'l'){
     for (let i = 0; i < biler.length; i++) 
-      biler[i].position.x += 1000;
+      biler[i].position.x += startSted;
+    }
+  if(key === 'k'){
+    for (let i = 0; i < biler.length; i++) 
+      biler[i].position.x -= startSted;
     }
   if(key == 'r') { //animation af kø
     let velocity = 1; //start fart
