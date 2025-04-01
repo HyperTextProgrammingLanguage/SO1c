@@ -3,6 +3,7 @@ let antalBiler = 0;
 let fpsUpdateInterval = 10; // Update FPS every 30 frames
 let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
+let maxSpeed = 1;
 
 let userInput = prompt("Antal biler: ");
 if (userInput === null || isNaN(userInput) || userInput === "") {
@@ -22,8 +23,8 @@ function setup() {
   // Opret biler baseret på antalBiler
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(-100 * i+100, 170);  // Placer biler med afstand
-    let hastighed = createVector(1, 0);
+    let position = createVector(-100 * i+1000, 170);  // Placer biler med afstand
+    let hastighed = createVector(maxSpeed, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
 }
@@ -38,8 +39,9 @@ function draw() {
     }
   }
 
-  if(biler[0].velocity.x < 1)
+  if(biler[0].velocity.x < maxSpeed) {
     biler[0].velocity.x *= 1.005;
+  }
   
   fill(240);
   rect(-10, height/2-20, width+10, 60);
@@ -120,8 +122,8 @@ function keyPressed(){
 
     const intervalIdb = setInterval(() => {
       velocity += acceleration; // Reducer farten
-      if (velocity >= 1) {
-        velocity = 1; // Stop farten ved 0
+      if (velocity >= maxSpeed) {
+        velocity = maxSpeed; // Stop farten ved 0
         clearInterval(intervalIdb); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
