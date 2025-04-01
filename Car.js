@@ -1,15 +1,14 @@
-let bmwImage; // Variable to hold the BMW image
-
+// Variables and constants
+let bmwImage; 
 const maxSpeed2 = 1;
 
-function preload() {
-  // Load the BMW image (replace with the path to your own image or URL)
-  bmwImage = loadImage("img/bmw.png");  // Use your own image URL or local path
-  bmwBrakeImage = loadImage("img/bmwBreak.png");  // Use your own image URL or local path
+function preload() { // Preload image (BMW) before setup
+  bmwImage = loadImage("img/bmw.png"); 
+  bmwBrakeImage = loadImage("img/bmwBreak.png");  
 }
 
 class Car {
-  constructor(cColor, pos, vel) {
+  constructor(cColor, pos, vel) { // Properties of the car
     this.color = cColor;
     this.position = pos;
     this.velocity = vel;
@@ -21,13 +20,12 @@ class Car {
     this.previousVelocity = vel.x; // Gem tidligere hastighed
   }
 
-  tjekBilForan(bilForan) {
+  tjekBilForan(bilForan) { // Variables for reaction, braking, and acceleration
     const minSafeDistance = 80; // Minimum safe distance between cars
     const reactionDistance = 100; // Distance to start reacting
     const brakingFactor = 0.8; // Factor to reduce velocity when braking
     const accelerationFactor = 0.05; // Factor to gradually increase velocity
     const bufferDistance = 10; // Buffer zone to prevent oscillation
-  
     const distanceToCarInFront = bilForan.position.x - this.position.x;
   
     if (distanceToCarInFront < minSafeDistance) {
@@ -69,7 +67,7 @@ class Car {
 
   
   update() {
-    // føj hastighed til position
+    // Add speed to position
     this.position.add(this.velocity);
   }
 

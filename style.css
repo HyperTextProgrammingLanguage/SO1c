@@ -6,21 +6,7 @@ canvas {
   display: block;
 }
 
-#titel {
-	font-family: sans-serif, serif;
-}
-
-
-#flexContainer {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-#StoppedCars {
-  margin: 0 0 0 0;
-}
-
-#allSpeeds {
+#allSpeeds { 
   list-style-type: none;
   column-count: 20;
   column-width: 90px;
@@ -33,7 +19,7 @@ canvas {
   margin-left: 1%;
 }
 
-.header {
+.header { 
   padding: 0;
   font-size: 120%;
 }
@@ -42,3 +28,19 @@ canvas {
   margin-top: 1%;
   font-size: 100%;
 }
+
+
+
+#titel {
+	font-family: sans-serif, serif;
+}
+
+#flexContainer {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#StoppedCars {
+  margin: 0 0 0 0;
+}
+
