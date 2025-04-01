@@ -1,6 +1,8 @@
 # Info
 [Original code](https://editor.p5js.org/mortenTEC/sketches/_2QjZTMeJ) by [mortenTEC](https://editor.p5js.org/mortenTEC/sketches)
 
+![Image of website](img/Screenshot.png)
+
 ## Libraries
 [P5.js](https://p5js.org/tutorials/setting-up-your-environment/) is required, but should be part of the repo.
 
