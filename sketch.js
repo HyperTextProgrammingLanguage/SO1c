@@ -13,14 +13,14 @@ let width = screen.width;
 
 
 function setup() {
-  createCanvas(width, 400);
+  createCanvas(width*4, 400);
   frameRate(60); 
   strokeWeight(2); 
 
   // Opret biler baseret på antalBiler
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(-100 * i+1000, 170);  // Placer biler med afstand
+    let position = createVector(-100 * i+100, 170);  // Placer biler med afstand
     let hastighed = createVector(1, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
@@ -54,9 +54,11 @@ function draw() {
   StoppedCarsElement.innerHTML = ""; // Ryd P
   
   // Count how many cars are stopped
-  const stoppedCarsCount = biler.filter(bil => bil.velocity.x === 0).length;
+
+  const stoppedCarsCount = biler.filter(bil => bil.velocity.x < 0.25).length;
   const completedCarsCount = biler.filter(bil => bil.position.x >= width).length;
   const awaitingCarsCount = biler.filter(bil => bil.position.x <= 0).length;
+
   
   // Display the count of stopped cars
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
@@ -68,6 +70,9 @@ function draw() {
     li.textContent = `Bil${index+1}: ${bil.velocity.x.toFixed(2)}`;
     if (bil.velocity.x < 0.5) {
       li.style.backgroundColor = "#ff0000";
+    }
+    if (bil.velocity.x > 1) {
+      li.style.backgroundColor = "#00ff00";
     }
     allSpeedsElement.appendChild(li);
   });
@@ -85,7 +90,7 @@ function keyPressed(){
   if(key == 'r') { //animation af kø
     let velocity = 1; //start fart
     let minFart = 0.4; //Den laveste fart som bilen når
-    let deceleration = 0.1; //Hvor meget bilen decelererer
+    let deceleration = 0.2; //Hvor meget bilen decelererer
     let acceleration = 0.1; //Hvor meget bilen accelererer
     let accelerationInterval = 120; //Hvor hurtigt bilen starter
     let decelerationInterval = 30; //Hvor hurtigt bilen stopper

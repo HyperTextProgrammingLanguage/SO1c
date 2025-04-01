@@ -37,6 +37,10 @@ class Car {
       this.reaktion = true;
       this.fare = true;
       this.timer = millis(); // Start reaction timer
+      if (this.velocity.x > 1) {
+        this.velocity.x = 1; // Stop the car
+      }
+    
     } else if (this.reaktion) {
       if (millis() - this.reaktionstid > this.timer) {
         this.reaktion = false; // End reaction time
