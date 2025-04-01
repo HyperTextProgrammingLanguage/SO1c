@@ -18,7 +18,7 @@ class Car {
   }
 
   tjekBilForan(bilForan) {
-    const minSafeDistance = 50; // Minimum safe distance between cars
+    const minSafeDistance = 70; // Minimum safe distance between cars
     const reactionDistance = 75; // Distance to start reacting
     const brakingFactor = 0.8; // Factor to reduce velocity when braking
     const accelerationFactor = 0.05; // Factor to gradually increase velocity
