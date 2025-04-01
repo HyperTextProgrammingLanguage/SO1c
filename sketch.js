@@ -74,7 +74,7 @@ function draw() { // This function runs constantly
 
   // Display the count of stopped cars and cars outside the screen
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
-  CompletedCarsElement.textContent = "Biler som er kør hele vejen: " + completedCarsCount;
+  CompletedCarsElement.textContent = "Biler som har kørt hele vejen: " + completedCarsCount;
   AwaitingCarsElement.textContent = "Biler som ikke er kommet ind endnu: " + awaitingCarsCount;
   runningCarsElement.textContent = "Biler som er i gang: " + runningCarsCoundt;
   
