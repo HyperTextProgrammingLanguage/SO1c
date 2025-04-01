@@ -104,9 +104,9 @@ function keyPressed(){
     biler[0].velocity.x = 0;
   if(key === 'w') //start bil
     biler[0].velocity.x = 1;
-  if(key === 'p') //start bil
+  if(key === 'p'){
     startSted += 1000;
-    for (let i = 0; i < biler.length; i++) {
+    for (let i = 0; i < biler.length; i++) 
       biler[i].position.x += 1000;
     }
   if(key == 'r') { //animation af kø
