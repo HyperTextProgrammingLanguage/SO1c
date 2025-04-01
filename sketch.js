@@ -1,6 +1,6 @@
 let biler = [];
 let antalBiler = 0;
-let maxSpeed = 5;
+let maxSpeed = 1;
 
 
 let userInput = prompt("Antal biler: ");
@@ -37,8 +37,9 @@ function draw() {
     }
   }
 
-  if(biler[0].velocity.x < maxSpeed)
+  if(biler[0].velocity.x < maxSpeed) {
     biler[0].velocity.x *= 1.005;
+  }
   
   fill(240);
   rect(-10, height/2-20, width+10, 60);
@@ -107,8 +108,8 @@ function keyPressed(){
 
     const intervalIdb = setInterval(() => {
       velocity += acceleration; // Reducer farten
-      if (velocity >= 1) {
-        velocity = 1; // Stop farten ved 0
+      if (velocity >= maxSpeed) {
+        velocity = maxSpeed; // Stop farten ved 0
         clearInterval(intervalIdb); // Stop intervallet når farten når 0
       }
       biler[0].velocity.x = velocity; // Opdater bilens fart
