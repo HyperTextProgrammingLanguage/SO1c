@@ -1,5 +1,7 @@
 let bmwImage; // Variable to hold the BMW image
 
+const maxSpeed2 = 1;
+
 function preload() {
   // Load the BMW image (replace with the path to your own image or URL)
   bmwImage = loadImage("img/bmw.png");  // Use your own image URL or local path
@@ -39,8 +41,8 @@ class Car {
       this.reaktion = true;
       this.fare = true;
       this.timer = millis(); // Start reaction timer
-      if (this.velocity.x > 1) {
-        this.velocity.x = 1; // Stop the car
+      if (this.velocity.x > maxSpeed2) {
+        this.velocity.x = maxSpeed2; // Stop the car
       }
     
     } else if (this.reaktion) {
@@ -52,7 +54,8 @@ class Car {
       if (distanceToCarInFront > reactionDistance + bufferDistance) {
         // Gradually accelerate instead of jumping
         this.velocity.x += accelerationFactor;
-        if (this.velocity.x >= bilForan.velocity.x) {
+        if (this.velocity.x >= maxSpeed2) {
+          this.velocity.x = maxSpeed2; 
           this.fare = false; // Resume normal speed
         }
       } else if (distanceToCarInFront < reactionDistance - bufferDistance) {
