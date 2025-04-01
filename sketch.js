@@ -48,17 +48,22 @@ function draw() {
 
   const allSpeedsElement = document.getElementById("allSpeeds");
   const StoppedCarsElement = document.getElementById("StoppedCars");
+  const CompletedCarsElement = document.getElementById("CarsRight");
+  const AwaitingCarsElement = document.getElementById("CarsLeft");
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
   
   // Count how many cars are stopped
+
   const stoppedCarsCount = biler.filter(bil => bil.velocity.x < 0.25).length;
-  //console.log(biler);
-  console.log(biler.map(bil => bil.velocity.x));
+  const completedCarsCount = biler.filter(bil => bil.position.x >= width).length;
+  const awaitingCarsCount = biler.filter(bil => bil.position.x <= 0).length;
+
   
   // Display the count of stopped cars
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
-
+  CompletedCarsElement.textContent = "Biler der er kommet igennem: " + completedCarsCount;
+  AwaitingCarsElement.textContent = "Biler der ikke er kommet ind på banen endnu: " + awaitingCarsCount;
   
   biler.forEach((bil, index) => {
     const li = document.createElement("li");
