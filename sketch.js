@@ -4,6 +4,7 @@ let antalBiler = 0;
 let fpsUpdateInterval = 10; // Update FPS every 30 frames
 let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
+let bilAfstand = -100;
 let maxSpeed = 1;
 let width = screen.width;
 let startSted = width/4;
@@ -26,7 +27,7 @@ function setup() {
   // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(-100 * i+startSted, 170);  // Placer biler med afstand
+    let position = createVector(bilAfstand * i, 170);  // Placer biler med afstand
     let hastighed = createVector(maxSpeed, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
@@ -116,6 +117,12 @@ function keyPressed(){
     for (let i = 0; i < biler.length; i++) 
       biler[i].position.x -= startSted;
     }
+  if(key === 'i'){
+    for (let i = 0; i < biler.length; i++) {
+      biler[i].position.x = bilAfstand * i; // Reset each car's position
+      biler[i].velocity.x = maxSpeed; // Optionally reset the speed to maxSpeed
+    }
+  }
   if(key == 'r') { //animation af kø
     let velocity = 1; //start fart
     let minFart = 0.4; //Den laveste fart som bilen når
