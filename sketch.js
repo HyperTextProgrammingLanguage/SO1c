@@ -1,5 +1,5 @@
 // Constants and variables
-let biler = [];
+//let biler = [];
 let antalBiler = 0;
 let fpsUpdateInterval = 10; // Update FPS every 30 frames
 let frameCounter = 0; // Counter to track frames
@@ -11,12 +11,12 @@ let startSted = width/4;
 
 
 // User can choose number of cars
-let userInput = prompt("Antal biler: ");
-if (userInput === null || isNaN(userInput) || userInput === "") {
-  antalBiler = 20;  // Invalid input = 20 cars
-} else {
-  antalBiler = parseInt(userInput);
-}
+//let userInput = prompt("Antal biler: ");
+//if (userInput === null || isNaN(userInput) || userInput === "") {
+//  antalBiler = 20;  // Invalid input = 20 cars
+//} else {
+//  antalBiler = parseInt(userInput);
+//}
 
 function setup() {
   const myCanvas = createCanvas(width, 400);

@@ -16,20 +16,14 @@ canvas {
 .text {
   font-family: sans-serif, serif;
   line-height: 50%;
-  margin-left: 1%;
+  margin-left: 2%;
 }
 
 .header { 
   padding: 0;
   font-size: 120%;
+  margin-top: 3%;
 }
-
-#h2 {
-  margin-top: 1%;
-  font-size: 100%;
-}
-
-
 
 #titel {
 	font-family: sans-serif, serif;
@@ -38,6 +32,12 @@ canvas {
 #flexContainer {
   display: flex;
   flex-wrap: nowrap;
+}
+
+#link {
+  margin-right: 2%;
+  margin-bottom: 5%;
+  color: #0000aa;
 }
 
 #StoppedCars {
