@@ -18,9 +18,11 @@ if (userInput === null || isNaN(userInput) || userInput === "") {
 }
 
 function setup() {
-  createCanvas(width, 400);
+  const myCanvas = createCanvas(width, 400);
+  myCanvas.parent("canvas");
   frameRate(60); 
   strokeWeight(2); 
+
 
   // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
