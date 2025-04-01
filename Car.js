@@ -4,7 +4,8 @@ const maxSpeed2 = 1;
 
 function preload() {
   // Load the BMW image (replace with the path to your own image or URL)
-  bmwImage = loadImage("image.png");  // Use your own image URL or local path
+  bmwImage = loadImage("img/bmw.png");  // Use your own image URL or local path
+  bmwBrakeImage = loadImage("img/bmwBreak.png");  // Use your own image URL or local path
 }
 
 class Car {
@@ -17,6 +18,7 @@ class Car {
     this.reaktion = false;
     this.timer = millis();
     this.reaktionstid = 250;
+    this.previousVelocity = vel.x; // Gem tidligere hastighed
   }
 
   tjekBilForan(bilForan) {
@@ -72,12 +74,19 @@ class Car {
   }
 
   display() {
-    if(this.reaktion == true)
-      fill(200,0,0);
-    else
-    fill(this.color);
-    /*rect(this.position.x-5, this.position.y+2, 40, 16, 5);
-    rect(this.position.x, this.position.y, 30, 20, 5);*/
-    image(bmwImage, this.position.x, this.position.y, 120, 80);
+    if (this.velocity.x < this.previousVelocity) {
+      if (!this.brakingStartTime) {
+        this.brakingStartTime = millis(); // Start the timer
+      }
+      if (millis() - this.brakingStartTime >= 10) { // Check if 0.1 seconds have passed
+        image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Use brake image
+      } else {
+        image(bmwImage, this.position.x, this.position.y, 120, 80); // Use normal image until 0.1 seconds pass
+      }
+    } else {
+      this.brakingStartTime = null; // Reset the timer if not braking
+      image(bmwImage, this.position.x, this.position.y, 120, 80); // Use normal image
+    }
+    this.previousVelocity = this.velocity.x; // Update previous velocity
   }
 }

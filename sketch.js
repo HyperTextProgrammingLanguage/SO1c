@@ -1,7 +1,9 @@
 let biler = [];
 let antalBiler = 0;
+let fpsUpdateInterval = 10; // Update FPS every 30 frames
+let frameCounter = 0; // Counter to track frames
+let lastFPS = 0; // Variable to store the last calculated FPS
 let maxSpeed = 1;
-
 
 let userInput = prompt("Antal biler: ");
 if (userInput === null || isNaN(userInput) || userInput === "") {
@@ -14,7 +16,7 @@ let width = screen.width;
 
 
 function setup() {
-  createCanvas(width*4, 400);
+  createCanvas(width, 400);
   frameRate(60); 
   strokeWeight(2); 
 
@@ -78,6 +80,18 @@ function draw() {
     }
     allSpeedsElement.appendChild(li);
   });
+
+  // Update frame rate display every `fpsUpdateInterval` frames
+  if (frameCounter % fpsUpdateInterval === 0) {
+    lastFPS = frameRate().toFixed(0); // Update the stored FPS value
+  }
+
+  // Display the last calculated FPS on the screen
+  fill(255);
+  textSize(16);
+  text(`FPS: ${lastFPS}`, 10, 20); // Show FPS in the top-left corner
+
+  frameCounter++; // Increment the frame counter
 }
 
 function keyPressed(){
