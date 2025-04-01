@@ -35,4 +35,9 @@ canvas {
   column-count: 20;
   column-width: 90px;
   width: fit-content;
+
+.text {
+  font-family: sans-serif, serif;
+  line-height: 50%;
+  margin-left: 1%;
 }

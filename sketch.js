@@ -1,6 +1,16 @@
-let biler = [];  
-let antalBiler = 50;  
+let biler = [];
+let antalBiler = 0;
+
+
+let userInput = prompt("Antal biler: ");
+if (userInput === null || isNaN(userInput) || userInput === "") {
+  antalBiler = 20;  // Set default to 20 if the input is invalid or canceled
+} else {
+  antalBiler = parseInt(userInput);
+}
+
 let width = screen.width;
+
 
 function setup() {
   createCanvas(width, 400);
