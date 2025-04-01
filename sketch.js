@@ -6,7 +6,7 @@ let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
 let maxSpeed = 1;
 let width = screen.width;
-let startSted = width/2;
+let startSted = width/4;
 
 
 // User can choose number of cars
