@@ -87,7 +87,6 @@ function draw() { // This function runs constantly
       allSpeedsElement.style.display = "none";
       bilOversigtElement.textContent = "Åbn biloversigt";
     } else {
-      console.log("HI");
       bilOversigt = true;
       bilOversigtElement.textContent = "Luk biloversigt";
       allSpeedsElement.style.display = "block";
