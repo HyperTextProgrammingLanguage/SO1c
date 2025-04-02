@@ -128,7 +128,11 @@ function draw() { // This function runs constantly
   restart.onclick = function() {
     for (let i = 0; i < biler.length; i++) {
       biler[i].position.x = bilAfstand * i; // Reset each car's position
-      biler[i].velocity.x = maxSpeed; // Optionally reset the speed to maxSpeed
+      biler[i].velocity.x = maxSpeed; 
+      setTimeout(() => { // Stopper bilerne for at holde deres fart efter reset
+        biler[i].position.x = bilAfstand * i; // Reset each car's position
+        biler[i].velocity.x = maxSpeed; 
+      }, 300); // Run after 0.3 seconds
     }
   }
   højre.onclick = function() {
@@ -191,6 +195,10 @@ function keyPressed(){
     for (let i = 0; i < biler.length; i++) {
       biler[i].position.x = bilAfstand * i; // Reset each car's position
       biler[i].velocity.x = maxSpeed; // Optionally reset the speed to maxSpeed
+      setTimeout(() => {  // Stopper bilerne for at holde deres fart efter reset
+        biler[i].position.x = bilAfstand * i; // Reset each car's position
+        biler[i].velocity.x = maxSpeed;
+      }, 300); // Run after 0.3 seconds
     }
   }
   if (key === 'e') { //animation af kø
