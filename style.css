@@ -15,6 +15,7 @@ canvas {
   width: fit-content;
   line-height: 100%;
   padding-left: 0%;
+  display: none;
 }
 .text {
   font-family: sans-serif, serif;

@@ -8,7 +8,7 @@ let bilAfstand = -100;
 let maxSpeed = 1;
 let width = screen.width;
 let startSted = width/4;
-let bilOversigt = true;
+let bilOversigt = false;
 
 
 // User can choose number of cars
