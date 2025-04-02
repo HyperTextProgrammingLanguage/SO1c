@@ -43,8 +43,7 @@ canvas {
 .controlButton {
   display: none;
   background-color: #247b28;
-  /* Green */
-  box-shadow: 0 2% #999;
+  box-shadow: 0 9px #999; /* Kan ikke burge %, lad værd med at skrifte */
   border: none;
   color: #f0f0f0;
   padding: 1% 2%;
@@ -54,12 +53,30 @@ canvas {
   font-size: 120%;
   margin-top: 1%;
   margin-left: 0.5%;
-  margin-bottom: 2%;
+  margin-bottom: 9px;
 }
 
 .controlButton:active {
   background-color: #246028;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 5px #666; /* Kan ikke burge %, lad værd med at skrifte */
+  transform: translateY(4px);
+}
+
+#bilOversigt {
+  background-color: #247b28;
+  box-shadow: 0 9px #999; /* Kan ikke burge %, lad værd med at skrifte */
+  border: none;
+  color: #f0f0f0;
+  padding: 1% 1%;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 80%;
+  margin-bottom: 9px;
+}
+#bilOversigt:active {
+  background-color: #246028;
+  box-shadow: 0 5px #666; /* Kan ikke burge %, lad værd med at skrifte */
   transform: translateY(4px);
 }
 
