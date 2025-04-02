@@ -42,11 +42,11 @@ canvas {
 
 .controlButton {
   display: none;
-  background-color: #247B28;
+  background-color: #247b28;
   /* Green */
   box-shadow: 0 9px #999;
   border: none;
-  color: #F0F0F0;
+  color: #f0f0f0;
   padding: 1% 2%;
   text-align: center;
   text-decoration: none;

@@ -5,14 +5,16 @@ let bmwAccelImage;
 const maxSpeed2 = 1;
 const normalMaxSpeed = 1.5; // Define a higher speed when far away
 
-function preload() { // Preload image (BMW) before setup
+function preload() {
+  // Preload image (BMW) before setup
   bmwImage = loadImage("img/bmw.png");
   bmwBrakeImage = loadImage("img/bmwBreak.png");
   bmwAccelImage = loadImage("img/bmwAccel.png");
 }
 
 class Car {
-  constructor(cColor, pos, vel) { // Properties of the car
+  constructor(cColor, pos, vel) {
+    // Properties of the car
     this.color = cColor;
     this.position = pos;
     this.velocity = vel;
@@ -25,7 +27,8 @@ class Car {
     this.maxSpeed = normalMaxSpeed; // Default max speed when far away
   }
 
-  tjekBilForan(bilForan) { // Variables for reaction, braking, and acceleration
+  tjekBilForan(bilForan) {
+    // Variables for reaction, braking, and acceleration
     const minSafeDistance = 80;
     const reactionDistance = 101;
     const brakingFactor = 0.8;
