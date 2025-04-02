@@ -1,7 +1,8 @@
 // Variables and constants
 let bmwImage; 
+let bmwBrakeImage;
 const maxSpeed2 = 1;
-const normalMaxSpeed = 3; // Define a higher speed when far away
+const normalMaxSpeed = 1.2; // Define a higher speed when far away
 
 function preload() { // Preload image (BMW) before setup
   bmwImage = loadImage("img/bmw.png"); 
