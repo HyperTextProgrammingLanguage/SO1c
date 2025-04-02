@@ -59,6 +59,7 @@ function draw() { // This function runs constantly
   // This section enables displaying of car information.
   // Here HTML text elements are imported (these text elements displat the car info)
   const allSpeedsElement = document.getElementById("allSpeeds");
+  const allSpeedsInfoElement = document.getElementById("allSpeedsInfo")
   const StoppedCarsElement = document.getElementById("StoppedCars");
   const CompletedCarsElement = document.getElementById("CarsRight"); // Number of cars that are outside of the screen to the right
   const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
@@ -92,11 +93,13 @@ function draw() { // This function runs constantly
     if (bilOversigt) {
       bilOversigt = false;
       allSpeedsElement.style.display = "none";
+      allSpeedsInfoElement.style.display = "none";
       bilOversigtElement.textContent = "Åbn biloversigt";
     } else {
       bilOversigt = true;
       bilOversigtElement.textContent = "Luk biloversigt";
       allSpeedsElement.style.display = "block";
+      allSpeedsInfoElement.style.display = "block";
     }
   }
   startsim.onclick = function() {
