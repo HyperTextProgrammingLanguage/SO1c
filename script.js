@@ -28,7 +28,7 @@ if (isMobileDevice()) {
 function isShit() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
-if (isIsit()) {
+if (isShit()) {
   fullscreenButton.style.display = "none"; // Hide button on iPhone
 } else {
   fullscreenButton.style.display = "inline-block"; // Show button otherwise
