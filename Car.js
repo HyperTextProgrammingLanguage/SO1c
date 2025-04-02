@@ -66,7 +66,7 @@ class Car {
   }
 
   display() {
-    if (this.velocity.x === 0 || this.velocity.x < this.previousVelocity) {
+    if (this.velocity.x < 0.25) {
       image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Show brake image when stopping or slowing
     } else if (this.velocity.x > 1) {
       image(bmwAccelImage, this.position.x, this.position.y, 120, 80);

@@ -13,7 +13,7 @@ let startSted = width/4;
 // User can choose number of cars
 let userInput = prompt("Antal biler: ");
 if (userInput === null || isNaN(userInput) || userInput === "") {
-  antalBiler = 20;  // Invalid input = 20 cars
+  antalBiler = 50;  // Invalid input = 20 cars
 } else {
   antalBiler = parseInt(userInput);
 }
