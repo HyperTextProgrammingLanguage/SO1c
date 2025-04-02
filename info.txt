@@ -1,35 +1,18 @@
-Hvis tæt på sæt fare
-	Hvis fare = true
-		stoppe langsomt
-			Stoppe hvis alt for tæt på
-				Hvis for tæt på fart 0
+Info about rewrite
 
-Starte hvis langt væk
-	Hvis inde for buffer fart max = 1
+The if statmen in normal text:
+	Check if the car is too close to the one in front:
+	    If the distance to the car ahead is less than the minimum safe distance, the car stops completely by setting its speed to zero.
 
+	Check if the car is within the reaction distance and hasn't started reacting yet:
+	    If the car is close enough to need a reaction and hasn't already started reacting (this.fare is false), it begins the reaction process.
+	    It sets this.reaktion and this.fare to true and starts a timer.
+	    If the car is moving faster than a certain speed (maxSpeed2), it slows down to that speed.
 
+	Check if the reaction time has ended:
+	    If the car is already reacting (this.reaktion is true) and the reaction time has passed, it stops reacting.
 
-
-
-1. Hvis tæt på
-	fart = 0
-
-2. Hvis tættere en reaktion og fare = false
-	reaktion = true
-	fare = ture
-	start [timer]
-		Hvis fart er over maxspeed
-			slet fart maxspeed
-
-2. Ellers hvis reaktion = true
-	hvis tiden nu - reaktionstiden > [timer]
-		reaktion = false
-
-2. Ellers hvis fare = true
-	3. Hvis vi er længere væk en bilen forand
-		accelere
-		Hvis fart er over maxspeed
-			fart = maxspeed
-			fare = false
-	3. Længden til bilen forand er mindrere end reaktionsdistans og buffer
-		bræms
+	If the car is still in a cautious state (this.fare is true):
+	    If the distance to the car in front is greater than the reaction distance plus a buffer, the car gradually speeds up.
+	    If it reaches the safe speed (maxSpeed2), it resumes normal driving and exits the cautious state (this.fare = false).
+	    If the car gets too close again (distance is below reaction distance minus the buffer), it gradually slows down.
