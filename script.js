@@ -40,6 +40,15 @@ if (isShit()) {
   fullscreenButton.style.display = "inline-block"; // Show button otherwise
 }
 
+function isShit() {
+  return !/Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+}
+if (isShit()) {
+  fullscreenButton.style.display = "none"; // Hide button on iPhone
+} else {
+  fullscreenButton.style.display = "inline-block"; // Show button otherwise
+}
+
 // Turn check
 function turned() {
   return window.matchMedia("(orientation: landscape)").matches;
