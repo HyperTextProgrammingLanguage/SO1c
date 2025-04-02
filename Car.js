@@ -1,12 +1,14 @@
 // Variables and constants
-let bmwImage; 
+let bmwImage;
 let bmwBrakeImage;
+let bmwAccelImage;
 const maxSpeed2 = 1;
 const normalMaxSpeed = 1.5; // Define a higher speed when far away
 
 function preload() { // Preload image (BMW) before setup
-  bmwImage = loadImage("img/bmw.png"); 
-  bmwBrakeImage = loadImage("img/bmwBreak.png");  
+  bmwImage = loadImage("img/bmw.png");
+  bmwBrakeImage = loadImage("img/bmwBreak.png");
+  bmwAccelImage = loadImage("img/bmwAccel.png");
 }
 
 class Car {
@@ -66,6 +68,8 @@ class Car {
   display() {
     if (this.velocity.x === 0 || this.velocity.x < this.previousVelocity) {
       image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Show brake image when stopping or slowing
+    } else if (this.velocity.x > 1) {
+      image(bmwAccelImage, this.position.x, this.position.y, 120, 80);
     } else {
       image(bmwImage, this.position.x, this.position.y, 120, 80);
     }
