@@ -34,12 +34,18 @@
       <div class="text">
         <div>
           <h1 class="taster header">Taster</h1>
-            <p class="taster"><b>E</b>: Simulere et stop for bil1</p>
-            <p class="taster"><b>D/Højre pil</b>: Sender alle biler frem</p>
-            <p class="taster"><b>A/Venstre pil</b>: Sender alle biler tilbage</p>
-            <p class="taster"><b>W</b>: Start bil1</p>
-            <p class="taster"><b>S</b>: Stop bil1</p>
-            <p class="taster"><b>R</b>: Genstart simulation</p>
+            <div id="flexContainer">
+              <div id="flexContainerH">
+                <p id="tast" class="taster"><b>E</b>: Simulere et stop for bil1</p>
+                <p id="tast" class="taster"><b>D/Højre pil</b>: Sender alle biler frem</p>
+                <p id="tast" class="taster"><b>A/Venstre pil</b>: Sender alle biler tilbage</p>
+              </div>
+              <div id="flexContainerH">
+                <p id="tast" class="taster"><b>W</b>: Start bil1</p>
+                <p id="tast" class="taster"><b>S</b>: Stop bil1</p>
+                <p id="tast" class="taster"><b>R</b>: Genstart simulation</p>
+              </div>
+            </div>
         </div>
         <div>
           <h1 class="header">Info</h1>
@@ -51,19 +57,21 @@
           <button id="bilOversigt">Åbn biloversigt</button>
             <ul id="allSpeeds"></ul>
             <div id="allSpeedsInfo">
-                <p>Rød = Stoppet</p>
-                <p>Sort = Normal</p>
-                <p>Grøn = Accelererer over standard fart</p>
+              <div id="flexContainer">
+                <p style="margin-top: 0; margin-right: 3%;">Rød = Stoppet</p>
+                <p style="margin-top: 0; margin-right: 3%;">Sort = Normal</p>
+                <p style="margin-top: 0;">Grøn = Accelererer over standard fart</p>
+              </div>
             </div>
         </div>
-      </div>
-    </main>
-    <h1 class="header" style="margin: 0% 0% 0% 2%;">Links</h1>
+    <h1 class="header" style="margin: 2h 0 0 0;">Links</h1>
     <div id="flexContainer">
       <a class="text" target="_blank" id="link" href="readme.md">Readme.md</a>
       <a class="text" target="_blank" id="link" href="https://github.com/HyperTextProgrammingLanguage/SO1c">Github</a>
       <a class="text" target="_blank" id="link" href="https://www.press.bmwgroup.com/global">BMW-billede</a>
     </div>
+  </div>
+</main>
     <script src="script.js"></script>
   </body>
 </html>

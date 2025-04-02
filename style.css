@@ -16,6 +16,7 @@ canvas {
   line-height: 100%;
   padding-left: 0%;
   display: none;
+  margin-top: 0;
 }
 #allSpeedsInfo {
   display: none;
@@ -23,13 +24,13 @@ canvas {
 .text {
   font-family: sans-serif, serif;
   line-height: 50%;
-  margin-left: 2%;
+  margin-left: 1vw;
 }
 
 .header { 
   padding: 0;
   font-size: 120%;
-  margin-top: 3%;
+  margin-top: 3vh;
 }
 
 #titel {
@@ -61,11 +62,20 @@ canvas {
   display: flex;
   flex-wrap: nowrap;
 }
-
+#flexContainerH {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+#tast {
+  margin-top: 0.2vh;
+  margin-right: 2vw;
+}
 #link {
-  margin-right: 2%;
   margin-bottom: 5%;
   color: #0000aa;
+  margin-left: 0;
+  margin-right: 1vh;
 }
 
 #StoppedCars {
