@@ -7,6 +7,7 @@ let lastFPS = 0; // Variable to store the last calculated FPS
 let bilAfstand = -100;
 let maxSpeed = 1;
 let width = screen.width;
+let height = screen.height;
 let startSted = width/4;
 let bilOversigt = false;
 
@@ -21,7 +22,7 @@ if (userInput === null || isNaN(userInput) || userInput === "") {
 }
 
 function setup() {
-  const myCanvas = createCanvas(width, 250);
+  const myCanvas = createCanvas(width, height/4);
   myCanvas.parent("canvas");
   frameRate(60); 
   strokeWeight(2); 
@@ -29,7 +30,7 @@ function setup() {
   // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(bilAfstand * i, 95);  // Placer biler med afstand
+    let position = createVector(bilAfstand * i, (height/4)-120);  // Placer biler med afstand
     let hastighed = createVector(maxSpeed, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
@@ -50,7 +51,7 @@ function draw() { // This function runs constantly
   }
   
   fill(240);
-  rect(-10, height/2-20, width+10, 60); // Draw road
+  rect(-10, height/4-110, width+10, 60); // Draw road
 
   for (let i = 0; i < biler.length; i++) {
     biler[i].display();
