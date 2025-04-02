@@ -108,27 +108,31 @@ function draw() {
       allSpeedsInfoElement.style.display = "block";
     }
   };
+
+
   fullscreenButton.onclick = function () {
-    let fs = fullscreen();
-    if (!fs) {
-      let canvasElement = document.getElementById("defaultCanvas0"); // Get the canvas element
-      if (canvasElement.requestFullscreen) {
-        canvasElement.requestFullscreen(); // Standard fullscreen API
-      } else if (canvasElement.webkitRequestFullscreen) {
-        canvasElement.webkitRequestFullscreen(); // Safari fullscreen API
-      } else if (canvasElement.msRequestFullscreen) {
-        canvasElement.msRequestFullscreen(); // IE/Edge fullscreen API
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen(); // Standard exit fullscreen API
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen(); // Safari exit fullscreen API
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen(); // IE/Edge exit fullscreen API
-      }
-    }
-  };
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+  }
+
+
   startsim.onclick = function () {
     let velocity = 1; //start fart
     let minFart = 0.2; //Den laveste fart som bilen når
