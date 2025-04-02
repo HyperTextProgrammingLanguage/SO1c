@@ -70,13 +70,13 @@ function draw() { // This function runs constantly
   const stoppedCarsCount = biler.filter(bil => bil.velocity.x < 0.25).length;
   const completedCarsCount = biler.filter(bil => bil.position.x >= width).length;
   const awaitingCarsCount = biler.filter(bil => bil.position.x <= 0).length;
-  const runningCarsCoundt = biler.filter(bil => bil.velocity.x === 1).length;
+  const runningCarsCoundt = biler.filter(bil => bil.velocity.x > 1).length;
 
   // Display the count of stopped cars and cars outside the screen
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
   CompletedCarsElement.textContent = "Biler som har kørt hele vejen: " + completedCarsCount;
   AwaitingCarsElement.textContent = "Biler som ikke er kommet ind endnu: " + awaitingCarsCount;
-  runningCarsElement.textContent = "Biler som er i gang: " + runningCarsCoundt;
+  runningCarsElement.textContent = "Biler som accelerere: " + runningCarsCoundt;
   
   // Show slow/stopped cars as red
   biler.forEach((bil, index) => {
@@ -130,11 +130,11 @@ function keyPressed(){
   }
   if (key === 'e') { //animation af kø
     let velocity = 1; //start fart
-    let minFart = 0.4; //Den laveste fart som bilen når
+    let minFart = 0.2; //Den laveste fart som bilen når
     let deceleration = 0.2; //Hvor meget bilen decelererer
     let acceleration = 0.1; //Hvor meget bilen accelererer
     let accelerationInterval = 120; //Hvor hurtigt bilen starter
-    let decelerationInterval = 30; //Hvor hurtigt bilen stopper
+    let decelerationInterval = 40; //Hvor hurtigt bilen stopper
 
     const intervalIda = setInterval(() => {
       velocity -= deceleration; // Reducer farten

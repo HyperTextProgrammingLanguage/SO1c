@@ -2,7 +2,7 @@
 let bmwImage; 
 let bmwBrakeImage;
 const maxSpeed2 = 1;
-const normalMaxSpeed = 1.2; // Define a higher speed when far away
+const normalMaxSpeed = 1.5; // Define a higher speed when far away
 
 function preload() { // Preload image (BMW) before setup
   bmwImage = loadImage("img/bmw.png"); 
@@ -25,7 +25,7 @@ class Car {
 
   tjekBilForan(bilForan) { // Variables for reaction, braking, and acceleration
     const minSafeDistance = 80;
-    const reactionDistance = 100;
+    const reactionDistance = 101;
     const brakingFactor = 0.8;
     const accelerationFactor = 0.05;
     const bufferDistance = 10;
