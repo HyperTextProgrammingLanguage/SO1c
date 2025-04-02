@@ -44,7 +44,7 @@ canvas {
   display: none;
   background-color: #247b28;
   /* Green */
-  box-shadow: 0 9px #999;
+  box-shadow: 0 1.5vh #999;
   border: none;
   color: #f0f0f0;
   padding: 1% 2%;
@@ -54,7 +54,7 @@ canvas {
   font-size: 120%;
   margin-top: 1%;
   margin-left: 0.5%;
-  margin-bottom: 1%;
+  margin-bottom: 1.5vh;
 }
 
 .controlButton:active {
