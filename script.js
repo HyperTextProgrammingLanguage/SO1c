@@ -58,9 +58,11 @@ turnScreenButton.onclick = function () {
       if (turned() || turn === 0) {
         turnScreen.style.display = "none"; // Hide the turn screen
         turnScreen2.style.display = "none"; // Hide the turn screen
+        turnScreenButton.style.display = "none"; // Hide the turn screen button
       } else {
         turnScreen.style.display = "block"; // Show the turn screen
         turnScreen2.style.display = "block"; // Show the turn screen
+        turnScreenButton.style.display = "block"; // Show the turn screen button
       }
     }
     requestAnimationFrame(checkEveryFiveFrames);
