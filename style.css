@@ -90,3 +90,15 @@ canvas {
   padding-left: 0%;
   padding: 0px;
 }
+#fullscreen {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.4vw 0.4vw 0 0;
+}

@@ -6,7 +6,7 @@ let frameCounter = 0; // Counter to track frames
 let lastFPS = 0; // Variable to store the last calculated FPS
 let bilAfstand = -100;
 let maxSpeed = 1;
-let width = screen.width;
+let width = window.innerWidth;
 let startSted = width / 4;
 let bilOversigt = false;
 
@@ -19,8 +19,6 @@ if (userInput === null || isNaN(userInput) || userInput === "") {
 }
 
 function setup() {
-  const myCanvas = createCanvas(width, 180);
-  myCanvas.parent("canvas");
   frameRate(60);
   strokeWeight(2);
 
@@ -34,6 +32,11 @@ function setup() {
 }
 
 function draw() {
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+  });
+  
+  createCanvas(width, 180).parent("canvas");
   // This function runs constantly
   background("#247B28");
 
@@ -65,6 +68,7 @@ function draw() {
   const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
   const runningCarsElement = document.getElementById("CarsRunning"); // Number of cars that are outside of the screen to the left
   const bilOversigtElement = document.getElementById("bilOversigt"); // Luk biloversigt button
+  const fullscreenButton = document.getElementById("fullscreen"); // Fullscreen button
   const startsim = document.getElementById("start");
   const restart = document.getElementById("restart");
   const højre = document.getElementById("højre");
@@ -104,6 +108,10 @@ function draw() {
       allSpeedsInfoElement.style.display = "block";
     }
   };
+  fullscreenButton.onclick = function () {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }
   startsim.onclick = function () {
     let velocity = 1; //start fart
     let minFart = 0.2; //Den laveste fart som bilen når
@@ -214,6 +222,10 @@ function keyPressed() {
       }, 60); // Run after 0.3 seconds
     }
   }
+  if (key === "f") {
+      let fs = fullscreen();
+      fullscreen(!fs);
+    }
   if (key === "e") {
     //animation af kø
     let velocity = 1; //start fart

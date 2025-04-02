@@ -7,6 +7,11 @@
 ### Libraries
 [P5.js](https://p5js.org/tutorials/setting-up-your-environment/) is required, but should be part of the repo.
 
+### Images
+SVG fullscreen from [svgrepo.com](https://www.svgrepo.com/svg/9306/fullscreen)
+
+BMW image from [bmwgroup.com](press.bmwgroup.com)
+
 ## Gyatthub projekt
 
 Stort tak til alle bidragere til projektet!
