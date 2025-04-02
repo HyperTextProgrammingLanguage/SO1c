@@ -40,10 +40,10 @@ if (isShit()) {
   fullscreenButton.style.display = "inline-block"; // Show button otherwise
 }
 
-function isShit() {
+function noFull() {
   return !/Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
 }
-if (isShit()) {
+if (noFull()) {
   fullscreenButton.style.display = "none"; // Hide button on iPhone
 } else {
   fullscreenButton.style.display = "inline-block"; // Show button otherwise
