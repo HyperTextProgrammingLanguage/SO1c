@@ -7,11 +7,12 @@ const turnScreenButton = document.getElementById("turnScreen-button");
 let turn = 1
 
 // Phone check
-function isMobileDevice() {
-  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
-    navigator.userAgent
-  );
-}
+if (typeof navigator !== "undefined" && navigator.userAgent) {
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
+      navigator.userAgent
+    );
+  }
   if (isMobileDevice()) {
     phoneControls.forEach((button) => {
       button.style.display = "inline-block";
@@ -27,6 +28,7 @@ function isMobileDevice() {
       element.style.display = "block"; // Or adjust depending on the need
     });
   }
+}
 
 
 // Iphone check of fullscreen button
