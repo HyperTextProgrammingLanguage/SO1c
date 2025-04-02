@@ -1,0 +1,35 @@
+Hvis tæt på sæt fare
+	Hvis fare = true
+		stoppe langsomt
+			Stoppe hvis alt for tæt på
+				Hvis for tæt på fart 0
+
+Starte hvis langt væk
+	Hvis inde for buffer fart max = 1
+
+
+
+
+
+1. Hvis tæt på
+	fart = 0
+
+2. Hvis tættere en reaktion og fare = false
+	reaktion = true
+	fare = ture
+	start [timer]
+		Hvis fart er over maxspeed
+			slet fart maxspeed
+
+2. Ellers hvis reaktion = true
+	hvis tiden nu - reaktionstiden > [timer]
+		reaktion = false
+
+2. Ellers hvis fare = true
+	3. Hvis vi er længere væk en bilen forand
+		accelere
+		Hvis fart er over maxspeed
+			fart = maxspeed
+			fare = false
+	3. Længden til bilen forand er mindrere end reaktionsdistans og buffer
+		bræms
