@@ -92,12 +92,14 @@
     <button id="fullscreen">
       <img src="img/fullscreen.svg" alt="Fullscreen" width="30vw" height="30vw" />
     </button>
-    <div id="turnScreen" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100%; background-color: rgba(0, 0, 0, 0.82 ); z-index: 1000; display: none;">
+    <!-- Suggests horizontal mode -->
+    <div id="turnScreen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.82); z-index: 1000; display: none;">
     <div id="turnScreen2" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; font-size: 8vw; display: none;">
       Turn device to landscape mode for a better experience
     </div>
     <button id="turnScreen-button">x</button>
     </div>
+    <!-- Suggests horizontal mode, end -->
     <script src="script.js"></script>
   </body>
 </html>

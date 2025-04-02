@@ -45,24 +45,25 @@ function turned() {
   return window.matchMedia("(orientation: landscape)").matches;
 }
 
+// Turn button
 turnScreenButton.onclick = function () {
   turn = 0;
 };
 
-// Check every 5 frames
-let frameCount = 0;
-function checkEveryFiveFrames() {
-  frameCount++;
-  if (frameCount % 5 === 0) {
-    if (turned() || turn === 0) {
-      turnScreen.style.display = "none"; // Hide the turn screen
-      turnScreen2.style.display = "none"; // Hide the turn screen
-    } else {
-      turnScreen.style.display = "block"; // Show the turn screen
-      turnScreen2.style.display = "block"; // Show the turn screen
+  // Check turn every 15 frames
+  let frameCount = 0;
+  function checkEveryFiveFrames() {
+    frameCount++;
+    if (frameCount % 15 === 0) {
+      if (turned() || turn === 0) {
+        turnScreen.style.display = "none"; // Hide the turn screen
+        turnScreen2.style.display = "none"; // Hide the turn screen
+      } else {
+        turnScreen.style.display = "block"; // Show the turn screen
+        turnScreen2.style.display = "block"; // Show the turn screen
+      }
     }
+    requestAnimationFrame(checkEveryFiveFrames);
   }
-  requestAnimationFrame(checkEveryFiveFrames);
-}
-checkEveryFiveFrames();
+  checkEveryFiveFrames();
 
