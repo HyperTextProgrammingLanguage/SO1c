@@ -35,15 +35,23 @@ canvas {
 
 .controlButton {
   background-color: #247B28; /* Green */
+  box-shadow: 0 9px #999;
   border: none;
   color: #F0F0F0;
-  padding: 15px 32px;
+  padding: 1% 2%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 120%;
   margin-top: 1%;
+  margin-left: 0.5%;
+}
+
+.controlButton:active {
+  background-color: #246028;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #flexContainer {
