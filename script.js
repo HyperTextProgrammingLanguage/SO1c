@@ -24,15 +24,12 @@ if (isMobileDevice()) {
     element.style.display = "block"; // Or adjust depending on the need
   });
 }
-
-// Iphone tjek
+// Iphone check
 function isShit() {
-  return /iPhone|iPad|iPod/i.test(
-    navigator.userAgent
-  );
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
-if (isShit()) {
-  fullscreenButton.style.display = "inline-block";
+if (isIsit()) {
+  fullscreenButton.style.display = "none"; // Hide button on iPhone
 } else {
-  fullscreenButton.style.display = "none"; // Hide button on desktop if needed
+  fullscreenButton.style.display = "inline-block"; // Show button otherwise
 }
