@@ -75,6 +75,7 @@ function draw() {
   const restart = document.getElementById("restart");
   const højre = document.getElementById("højre");
   const venstre = document.getElementById("venstre");
+  const fullscreenImg = document.getElementById("fullscreenImg"); // Fullscreen image
 
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
@@ -111,7 +112,6 @@ function draw() {
     }
   };
 
-
   fullscreenButton.onclick = function () {
     var elem = document.documentElement;
 
@@ -120,19 +120,25 @@ function draw() {
       // Enter fullscreen
       if (elem.requestFullscreen) {
         elem.requestFullscreen();
+      fullscreenImg.style.transform = "rotate(180deg)"; 
       } else if (elem.webkitRequestFullscreen) {
         elem.webkitRequestFullscreen(); // Safari
+        fullscreenImg.style.transform = "rotate(180deg)";
       } else if (elem.msRequestFullscreen) {
         elem.msRequestFullscreen(); // IE11
+        fullscreenImg.style.transform = "rotate(180deg)";
       }
     } else {
       // Exit fullscreen
       if (document.exitFullscreen) {
         document.exitFullscreen();
+      fullscreenImg.style.transform = "rotate(0deg)"; 
       } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen(); // Safari
+        fullscreenImg.style.transform = "rotate(0deg)"; 
       } else if (document.msExitFullscreen) {
         document.msExitFullscreen(); // IE11
+        fullscreenImg.style.transform = "rotate(0deg)"; 
       }
     }
   };
@@ -251,6 +257,8 @@ function keyPressed() {
   if (key === "f") {
       let fs = fullscreen();
       fullscreen(!fs);
+      const fullscreenImg = document.getElementById("fullscreenImg"); // Fullscreen image
+      fullscreenImg.style.display = "none";
     }
   if (key === "e") {
     //animation af kø
