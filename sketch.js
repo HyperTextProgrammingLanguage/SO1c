@@ -11,6 +11,7 @@ let startSted = width/4;
 let bilOversigt = false;
 
 
+
 // User can choose number of cars
 let userInput = prompt("Antal biler: ");
 if (userInput === null || isNaN(userInput) || userInput === "") {
@@ -84,6 +85,8 @@ function draw() { // This function runs constantly
   AwaitingCarsElement.textContent = "Biler som ikke er kommet ind endnu: " + awaitingCarsCount;
 
   runningCarsElement.textContent = "Biler som er i gang: " + runningCarsCoundt;
+  
+
 
   bilOversigtElement.onclick = function() {
     if (bilOversigt) {
