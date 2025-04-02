@@ -25,6 +25,7 @@ class Car {
     this.reaktionstid = 250;
     this.previousVelocity = vel.x;
     this.maxSpeed = normalMaxSpeed; // Default max speed when far away
+    this.currentImage = bmwImage; // Initialize with a default image
   }
 
   tjekBilForan(bilForan) {
@@ -69,13 +70,16 @@ class Car {
   }
 
   display() {
-    if (this.velocity.x < 0.25) {
-      image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Show brake image when stopping or slowing
-    } else if (this.velocity.x > 1) {
-      image(bmwAccelImage, this.position.x, this.position.y, 120, 80);
-    } else {
-      image(bmwImage, this.position.x, this.position.y, 120, 80);
+    if (frameCount % 3 === 0) { // Makes it so it only updates every 3 frames
+      if (this.velocity.x < 0.25) {
+        this.currentImage = bmwBrakeImage; // Update image every 3 frames
+      } else if (this.velocity.x > 1) {
+        this.currentImage = bmwAccelImage;
+      } else {
+        this.currentImage = bmwImage;
+      }
     }
+    image(this.currentImage, this.position.x, this.position.y, 120, 80); // Display the current image
     this.previousVelocity = this.velocity.x;
   }
 }

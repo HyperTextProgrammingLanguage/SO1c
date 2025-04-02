@@ -36,9 +36,11 @@ function draw() {
     width = window.innerWidth;
   });
   
-  createCanvas(width, 180).parent("canvas");
-  // This function runs constantly
-  background("#247B28");
+  if (frameCounter % 10 === 0) { // Makes it update every 10 frames
+    createCanvas(width, 180).parent("canvas");
+    // This function runs constantly
+    background("#247B28");
+  }
 
   for (let i = 0; i < biler.length; i++) {
     biler[i].update(); // Update car
