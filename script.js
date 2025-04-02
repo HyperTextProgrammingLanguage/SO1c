@@ -1,5 +1,6 @@
 const phoneControls = document.querySelectorAll(".controlButton");
 const pcControl = document.querySelectorAll(".taster");
+const fullscreenButton = document.getElementById("fullscreen");
 
 // Phone check
 function isMobileDevice() {
@@ -22,4 +23,16 @@ if (isMobileDevice()) {
   pcControl.forEach((element) => {
     element.style.display = "block"; // Or adjust depending on the need
   });
+}
+
+// Iphone tjek
+function isShit() {
+  return /iPhone|iPad|iPod/i.test(
+    navigator.userAgent
+  );
+}
+if (isShit()) {
+  fullscreenButton.style.display = "inline-block";
+} else {
+  fullscreenButton.style.display = "none"; // Hide button on desktop if needed
 }
