@@ -63,6 +63,10 @@ function draw() { // This function runs constantly
   const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
   const runningCarsElement = document.getElementById("CarsRunning"); // Number of cars that are outside of the screen to the left
   const bilOversigtElement = document.getElementById("bilOversigt"); // Luk biloversigt button
+  const startsim = document.getElementById("start")
+  const restart = document.getElementById("restart")
+  const højre = document.getElementById("højre")
+  const venstre = document.getElementById("venstre")
 
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
@@ -91,6 +95,46 @@ function draw() { // This function runs constantly
       bilOversigtElement.textContent = "Luk biloversigt";
       allSpeedsElement.style.display = "block";
     }
+  }
+  startsim.onclick = function() {
+    let velocity = 1; //start fart
+    let minFart = 0.2; //Den laveste fart som bilen når
+    let deceleration = 0.2; //Hvor meget bilen decelererer
+    let acceleration = 0.1; //Hvor meget bilen accelererer
+    let accelerationInterval = 120; //Hvor hurtigt bilen starter
+    let decelerationInterval = 40; //Hvor hurtigt bilen stopper
+
+    const intervalIda = setInterval(() => {
+      velocity -= deceleration; // Reducer farten
+      if (velocity <= minFart) {
+        velocity = minFart; // Stop nedsænkning
+        clearInterval(intervalIda); // Stop intervallet når farten når 0
+      }
+      biler[0].velocity.x = velocity; // Opdater bilens fart
+    }, decelerationInterval); // Kør hver x ms
+
+    const intervalIdb = setInterval(() => {
+      velocity += acceleration; // Reducer farten
+      if (velocity >= maxSpeed) {
+        velocity = maxSpeed; // Stop farten ved 0
+        clearInterval(intervalIdb); // Stop intervallet når farten når 0
+      }
+      biler[0].velocity.x = velocity; // Opdater bilens fart
+    }, accelerationInterval); // Efter 5 sekunder
+  }
+  restart.onclick = function() {
+    for (let i = 0; i < biler.length; i++) {
+      biler[i].position.x = bilAfstand * i; // Reset each car's position
+      biler[i].velocity.x = maxSpeed; // Optionally reset the speed to maxSpeed
+    }
+  }
+  højre.onclick = function() {
+    for (let i = 0; i < biler.length; i++) 
+      biler[i].position.x += startSted;
+  }
+  venstre.onclick = function() {
+    for (let i = 0; i < biler.length; i++) 
+      biler[i].position.x -= startSted;
   }
 
   runningCarsElement.textContent = "Biler som accelerere: " + runningCarsCoundt;
