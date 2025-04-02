@@ -3,6 +3,7 @@
 
 ![Image of website](img/Screenshot.png)
 
+
 ## Libraries
 [P5.js](https://p5js.org/tutorials/setting-up-your-environment/) is required, but should be part of the repo.
 
