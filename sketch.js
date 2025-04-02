@@ -8,6 +8,7 @@ let bilAfstand = -100;
 let maxSpeed = 1;
 let width = screen.width;
 let startSted = width/4;
+let bilOversigt = true;
 
 
 // User can choose number of cars
@@ -61,6 +62,7 @@ function draw() { // This function runs constantly
   const CompletedCarsElement = document.getElementById("CarsRight"); // Number of cars that are outside of the screen to the right
   const AwaitingCarsElement = document.getElementById("CarsLeft"); // Number of cars that are outside of the screen to the left
   const runningCarsElement = document.getElementById("CarsRunning"); // Number of cars that are outside of the screen to the left
+  const bilOversigtElement = document.getElementById("bilOversigt"); // Luk biloversigt button
 
   allSpeedsElement.innerHTML = ""; // Ryd listen
   StoppedCarsElement.innerHTML = ""; // Ryd P
@@ -76,7 +78,24 @@ function draw() { // This function runs constantly
   StoppedCarsElement.textContent = "Stoppede biler: " + stoppedCarsCount;
   CompletedCarsElement.textContent = "Biler som har kørt hele vejen: " + completedCarsCount;
   AwaitingCarsElement.textContent = "Biler som ikke er kommet ind endnu: " + awaitingCarsCount;
+
+  runningCarsElement.textContent = "Biler som er i gang: " + runningCarsCoundt;
+
+  bilOversigtElement.onclick = function() {
+    if (bilOversigt) {
+      bilOversigt = false;
+      allSpeedsElement.style.display = "none";
+      bilOversigtElement.textContent = "Åbn biloversigt";
+    } else {
+      console.log("HI");
+      bilOversigt = true;
+      bilOversigtElement.textContent = "Luk biloversigt";
+      allSpeedsElement.style.display = "block";
+    }
+  }
+
   runningCarsElement.textContent = "Biler som accelerere: " + runningCarsCoundt;
+
   
   // Show slow/stopped cars as red
   biler.forEach((bil, index) => {
@@ -155,3 +174,4 @@ function keyPressed(){
     }, accelerationInterval); // Efter 5 sekunder
   }
 }
+
