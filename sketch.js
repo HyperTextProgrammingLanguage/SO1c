@@ -21,7 +21,7 @@ if (userInput === null || isNaN(userInput) || userInput === "") {
 }
 
 function setup() {
-  const myCanvas = createCanvas(width, 400);
+  const myCanvas = createCanvas(width, 250);
   myCanvas.parent("canvas");
   frameRate(60); 
   strokeWeight(2); 
@@ -29,7 +29,7 @@ function setup() {
   // Create cars based on antalBiler variable
   for (let i = 0; i < antalBiler; i++) {
     let farve = (i === 0) ? "silver" : (i === 1) ? "gold" : "blue";  // Forskellige farver
-    let position = createVector(bilAfstand * i, 170);  // Placer biler med afstand
+    let position = createVector(bilAfstand * i, 95);  // Placer biler med afstand
     let hastighed = createVector(maxSpeed, 0);
     biler.push(new Car(farve, position, hastighed));  // Tilføj bil til arrayet
   }
