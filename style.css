@@ -16,6 +16,7 @@ canvas {
   line-height: 100%;
   padding-left: 0%;
 }
+
 .text {
   font-family: sans-serif, serif;
   line-height: 50%;
@@ -30,6 +31,19 @@ canvas {
 
 #titel {
 	font-family: sans-serif, serif;
+}
+
+.controlButton {
+  background-color: #247B28; /* Green */
+  border: none;
+  color: #F0F0F0;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 1%;
 }
 
 #flexContainer {
