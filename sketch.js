@@ -110,8 +110,25 @@ function draw() {
   };
   fullscreenButton.onclick = function () {
     let fs = fullscreen();
-    fullscreen(!fs);
-  }
+    if (!fs) {
+      let canvasElement = document.getElementById("defaultCanvas0"); // Get the canvas element
+      if (canvasElement.requestFullscreen) {
+        canvasElement.requestFullscreen(); // Standard fullscreen API
+      } else if (canvasElement.webkitRequestFullscreen) {
+        canvasElement.webkitRequestFullscreen(); // Safari fullscreen API
+      } else if (canvasElement.msRequestFullscreen) {
+        canvasElement.msRequestFullscreen(); // IE/Edge fullscreen API
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen(); // Standard exit fullscreen API
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen(); // Safari exit fullscreen API
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen(); // IE/Edge exit fullscreen API
+      }
+    }
+  };
   startsim.onclick = function () {
     let velocity = 1; //start fart
     let minFart = 0.2; //Den laveste fart som bilen når
