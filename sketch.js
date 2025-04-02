@@ -35,8 +35,9 @@ function draw() {
   window.addEventListener("resize", () => {
     width = window.innerWidth;
   });
-  
-  if (frameCounter % 10 === 0) { // Makes it update every 10 frames
+
+  if (frameCounter % 10 === 0) {
+    // Makes it update every 10 frames
     createCanvas(width, 180).parent("canvas");
     // This function runs constantly
     background("#247B28");
@@ -120,7 +121,7 @@ function draw() {
       // Enter fullscreen
       if (elem.requestFullscreen) {
         elem.requestFullscreen();
-      fullscreenImg.style.transform = "rotate(180deg)"; 
+        fullscreenImg.style.transform = "rotate(180deg)";
       } else if (elem.webkitRequestFullscreen) {
         elem.webkitRequestFullscreen(); // Safari
         fullscreenImg.style.transform = "rotate(180deg)";
@@ -132,17 +133,16 @@ function draw() {
       // Exit fullscreen
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      fullscreenImg.style.transform = "rotate(0deg)"; 
+        fullscreenImg.style.transform = "rotate(0deg)";
       } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen(); // Safari
-        fullscreenImg.style.transform = "rotate(0deg)"; 
+        fullscreenImg.style.transform = "rotate(0deg)";
       } else if (document.msExitFullscreen) {
         document.msExitFullscreen(); // IE11
-        fullscreenImg.style.transform = "rotate(0deg)"; 
+        fullscreenImg.style.transform = "rotate(0deg)";
       }
     }
   };
-
 
   startsim.onclick = function () {
     let velocity = 1; //start fart
@@ -255,11 +255,11 @@ function keyPressed() {
     }
   }
   if (key === "f") {
-      let fs = fullscreen();
-      fullscreen(!fs);
-      const fullscreenImg = document.getElementById("fullscreenImg"); // Fullscreen image
-      fullscreenImg.style.display = "none";
-    }
+    let fs = fullscreen();
+    fullscreen(!fs);
+    const fullscreenImg = document.getElementById("fullscreenImg"); // Fullscreen image
+    fullscreenImg.style.display = "none";
+  }
   if (key === "e") {
     //animation af kø
     let velocity = 1; //start fart

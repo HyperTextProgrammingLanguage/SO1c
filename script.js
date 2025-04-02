@@ -4,7 +4,7 @@ const fullscreenButton = document.getElementById("fullscreen");
 const turnScreen = document.getElementById("turnScreen");
 const turnScreen2 = document.getElementById("turnScreen2");
 const turnScreenButton = document.getElementById("turnScreen-button");
-let turn = 1
+let turn = 1;
 
 // Phone check
 if (typeof navigator !== "undefined" && navigator.userAgent) {
@@ -30,17 +30,15 @@ if (typeof navigator !== "undefined" && navigator.userAgent) {
   }
 }
 
-
 // Iphone check of fullscreen button
 function isShit() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
-  if (isShit()) {
-    fullscreenButton.style.display = "none"; // Hide button on iPhone
-  } else {
-    fullscreenButton.style.display = "inline-block"; // Show button otherwise
-  }
-
+if (isShit()) {
+  fullscreenButton.style.display = "none"; // Hide button on iPhone
+} else {
+  fullscreenButton.style.display = "inline-block"; // Show button otherwise
+}
 
 // Turn check
 function turned() {
@@ -52,22 +50,21 @@ turnScreenButton.onclick = function () {
   turn = 0;
 };
 
-  // Check turn every 15 frames
-  let frameCount = 0;
-  function checkEveryFiveFrames() {
-    frameCount++;
-    if (frameCount % 15 === 0) {
-      if (turned() || turn === 0) {
-        turnScreen.style.display = "none"; // Hide the turn screen
-        turnScreen2.style.display = "none"; // Hide the turn screen
-        turnScreenButton.style.display = "none"; // Hide the turn screen button
-      } else {
-        turnScreen.style.display = "block"; // Show the turn screen
-        turnScreen2.style.display = "block"; // Show the turn screen
-        turnScreenButton.style.display = "block"; // Show the turn screen button
-      }
+// Check turn every 15 frames
+let frameCount = 0;
+function checkEveryFiveFrames() {
+  frameCount++;
+  if (frameCount % 15 === 0) {
+    if (turned() || turn === 0) {
+      turnScreen.style.display = "none"; // Hide the turn screen
+      turnScreen2.style.display = "none"; // Hide the turn screen
+      turnScreenButton.style.display = "none"; // Hide the turn screen button
+    } else {
+      turnScreen.style.display = "block"; // Show the turn screen
+      turnScreen2.style.display = "block"; // Show the turn screen
+      turnScreenButton.style.display = "block"; // Show the turn screen button
     }
-    requestAnimationFrame(checkEveryFiveFrames);
   }
-  checkEveryFiveFrames();
-
+  requestAnimationFrame(checkEveryFiveFrames);
+}
+checkEveryFiveFrames();

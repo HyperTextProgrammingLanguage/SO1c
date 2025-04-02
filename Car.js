@@ -70,7 +70,8 @@ class Car {
   }
 
   display() {
-    if (frameCount % 3 === 0) { // Makes it so it only updates every 3 frames
+    if (frameCount % 3 === 0) {
+      // Makes it so it only updates every 3 frames
       if (this.velocity.x < 0.25) {
         this.currentImage = bmwBrakeImage; // Update image every 3 frames
       } else if (this.velocity.x > 1) {

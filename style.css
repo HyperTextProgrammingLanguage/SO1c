@@ -109,23 +109,23 @@ canvas {
   padding: 0px;
 }
 #fullscreen {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0.4vw 0.4vw 0 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0.4vw 0.4vw 0 0;
 }
 
 #turnScreen-button {
   position: absolute;
   top: 0;
   right: 0;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
