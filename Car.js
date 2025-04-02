@@ -1,6 +1,7 @@
 // Variables and constants
 let bmwImage; 
 const maxSpeed2 = 1;
+const normalMaxSpeed = 3; // Define a higher speed when far away
 
 function preload() { // Preload image (BMW) before setup
   bmwImage = loadImage("img/bmw.png"); 
@@ -17,74 +18,56 @@ class Car {
     this.reaktion = false;
     this.timer = millis();
     this.reaktionstid = 250;
-    this.previousVelocity = vel.x; // Gem tidligere hastighed
+    this.previousVelocity = vel.x;
+    this.maxSpeed = normalMaxSpeed; // Default max speed when far away
   }
 
   tjekBilForan(bilForan) { // Variables for reaction, braking, and acceleration
-    const minSafeDistance = 80; // Minimum safe distance between cars
-    const reactionDistance = 100; // Distance to start reacting
-    const brakingFactor = 0.8; // Factor to reduce velocity when braking
-    const accelerationFactor = 0.05; // Factor to gradually increase velocity
-    const bufferDistance = 10; // Buffer zone to prevent oscillation
+    const minSafeDistance = 80;
+    const reactionDistance = 100;
+    const brakingFactor = 0.8;
+    const accelerationFactor = 0.05;
+    const bufferDistance = 10;
     const distanceToCarInFront = bilForan.position.x - this.position.x;
-  
+
     if (distanceToCarInFront < minSafeDistance) {
-      // Too close to the car in front, stop completely
       this.velocity.x = 0;
+      this.maxSpeed = 0; // Ensure the car completely stops
       return;
     }
-  
-    if (distanceToCarInFront < reactionDistance && !this.fare) {
-      // Start reacting if within reaction distance
-      this.reaktion = true;
-      this.fare = true;
-      this.timer = millis(); // Start reaction timer
-      if (this.velocity.x > maxSpeed2) {
-        this.velocity.x = maxSpeed2; // Stop the car
-      }
-    
-    } else if (this.reaktion) {
-      if (millis() - this.reaktionstid > this.timer) {
-        this.reaktion = false; // End reaction time
-      }
-    } else if (this.fare) {
-      // Check if the path is clear again
-      if (distanceToCarInFront > reactionDistance + bufferDistance) {
-        // Gradually accelerate instead of jumping
-        this.velocity.x += accelerationFactor;
-        if (this.velocity.x >= maxSpeed2) {
-          this.velocity.x = maxSpeed2; 
-          this.fare = false; // Resume normal speed
-        }
-      } else if (distanceToCarInFront < reactionDistance - bufferDistance) {
-        // Gradually slow down
-        this.velocity.x *= brakingFactor;
 
+    if (distanceToCarInFront < reactionDistance) {
+      this.maxSpeed = maxSpeed2; // Reduce max speed when close
+      if (this.velocity.x > this.maxSpeed) {
+        this.velocity.x *= brakingFactor;
+        if (this.velocity.x < this.maxSpeed) {
+          this.velocity.x = this.maxSpeed;
+        }
+      }
+    } else {
+      this.maxSpeed = normalMaxSpeed; // Allow higher speed when far away
+      if (this.velocity.x < this.maxSpeed) {
+        this.velocity.x += accelerationFactor;
+        if (this.velocity.x > this.maxSpeed) {
+          this.velocity.x = this.maxSpeed;
+        }
       }
     }
   }
 
-
-  
   update() {
-    // Add speed to position
+    if (this.velocity.x > this.maxSpeed) {
+      this.velocity.x = this.maxSpeed; // Prevent random acceleration
+    }
     this.position.add(this.velocity);
   }
 
   display() {
-    if (this.velocity.x < this.previousVelocity) {
-      if (!this.brakingStartTime) {
-        this.brakingStartTime = millis(); // Start the timer
-      }
-      if (millis() - this.brakingStartTime >= 10) { // Check if 0.1 seconds have passed
-        image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Use brake image
-      } else {
-        image(bmwImage, this.position.x, this.position.y, 120, 80); // Use normal image until 0.1 seconds pass
-      }
+    if (this.velocity.x === 0 || this.velocity.x < this.previousVelocity) {
+      image(bmwBrakeImage, this.position.x, this.position.y, 120, 80); // Show brake image when stopping or slowing
     } else {
-      this.brakingStartTime = null; // Reset the timer if not braking
-      image(bmwImage, this.position.x, this.position.y, 120, 80); // Use normal image
+      image(bmwImage, this.position.x, this.position.y, 120, 80);
     }
-    this.previousVelocity = this.velocity.x; // Update previous velocity
+    this.previousVelocity = this.velocity.x;
   }
 }
