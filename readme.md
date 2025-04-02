@@ -1,5 +1,5 @@
 # Køkørsel SO1c
-![Image of website](img/Screenshot.png)
+![Image of the website](img/Screenshot.png)
 
 ## Info
 [Original code](https://editor.p5js.org/mortenTEC/sketches/_2QjZTMeJ) by [mortenTEC](https://editor.p5js.org/mortenTEC/sketches)
