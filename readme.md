@@ -8,7 +8,9 @@
 [P5.js](https://p5js.org/tutorials/setting-up-your-environment/) is required, but should be part of the repo.
 
 ### Images
-SVG fullscreen from [svgrepo.com](https://www.svgrepo.com/svg/9306/fullscreen)
+SVG fullscreen icon from [Github: apancik/public-domain-icons](https://github.com/apancik/public-domain-icons/blob/master/dist/symbol%20external%20share%20link%20outside.svg)
+
+SVG close icon from [Github: apancik/public-domain-icons](https://github.com/apancik/public-domain-icons/blob/master/dist/symbol%20cross%20delete%20remove%20multiply.svg)
 
 BMW image from [bmwgroup.com](press.bmwgroup.com)
 
