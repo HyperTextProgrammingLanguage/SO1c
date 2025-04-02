@@ -30,7 +30,7 @@ if (typeof navigator !== "undefined" && navigator.userAgent) {
   }
 }
 
-// Iphone check of fullscreen button
+// Iphone check for fullscreen button
 function isShit() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
@@ -41,7 +41,9 @@ if (isShit()) {
 }
 
 function noFull() {
-  return !/Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+  return !/Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
+    navigator.userAgent
+  );
 }
 if (noFull()) {
   fullscreenButton.style.display = "none"; // Hide button on iPhone

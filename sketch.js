@@ -257,8 +257,6 @@ function keyPressed() {
   if (key === "f") {
     let fs = fullscreen();
     fullscreen(!fs);
-    const fullscreenImg = document.getElementById("fullscreenImg"); // Fullscreen image
-    fullscreenImg.style.display = "none";
   }
   if (key === "e") {
     //animation af kø
