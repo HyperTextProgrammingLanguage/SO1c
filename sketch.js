@@ -9,6 +9,7 @@ let maxSpeed = 1;
 let width = window.innerWidth;
 let startSted = width / 4;
 let bilOversigt = false;
+let fakeSpeed = 60;
 
 // User can choose number of cars
 let userInput = prompt("Antal biler: ");
@@ -207,7 +208,7 @@ function draw() {
   // Show slow/stopped cars as red
   biler.forEach((bil, index) => {
     const li = document.createElement("li");
-    li.textContent = `Bil${index + 1}: ${bil.velocity.x.toFixed(2)}`;
+    li.innerHTML = `<b>Bil${index + 1}</b>: ${String((bil.velocity.x * fakeSpeed).toFixed(2)).padStart(5, '0')} km/t`;
     if (bil.velocity.x < 1) {
       li.style.backgroundColor = "#ff0000";
     }

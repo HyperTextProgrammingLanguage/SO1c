@@ -18,8 +18,9 @@ canvas {
 
 #allSpeeds {
   list-style-type: none;
-  column-count: 20;
-  column-width: 90px;
+  column-count: 10;
+  column-width: min-content;
+  white-space: nowrap;
   width: fit-content;
   line-height: 100%;
   padding-left: 0%;
