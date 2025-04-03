@@ -14,7 +14,7 @@ SVG X icon from [Github: apancik/public-domain-icons](https://github.com/apancik
 
 BMW image from [bmwgroup.com](https://www.press.bmwgroup.com/global/photo/compilation/T0439308EN/the-new-bmw-m4-coupé-the-new-bmw-m4-convertible)
 
-## Gyatthub projekt
+## *Gyatt*hub projekt
 
 Stort tak til alle bidragere til projektet!
 
