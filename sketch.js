@@ -268,6 +268,9 @@ function keyPressed() {
     let fs = fullscreen();
     fullscreen(!fs);
   }
+  if (key === "i") {
+    window.open("share.html");
+  }
   if (key === "e") {
     //animation af kø
     let velocity = 1; //start fart

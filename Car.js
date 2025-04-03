@@ -32,7 +32,6 @@ class Car {
     // Variables for reaction, braking, and acceleration
     const minSafeDistance = 90;
     const reactionDistance = 101;
-    const bufferDistance = 10;
     const distanceToCarInFront = bilForan.position.x - this.position.x;
 
     const timeStep = 0.016; // Assuming a frame rate of 60 FPS, time per frame in seconds
@@ -55,7 +54,7 @@ class Car {
         }
       }
     } else {
-      this.maxSpeed = normalMaxSpeed; // Allow higher speed when far away
+      this.maxSpeed = 1.1; // Allow higher speed when far away
       if (this.velocity.x < this.maxSpeed) {
         // Apply acceleration
         this.velocity.x += acceleration * timeStep;
