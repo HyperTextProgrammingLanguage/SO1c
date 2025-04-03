@@ -32,21 +32,24 @@ class Car {
     // Variables for reaction, braking, and acceleration
     const minSafeDistance = 80;
     const reactionDistance = 101;
-    const brakingFactor = 0.8;
-    const accelerationFactor = 0.05;
     const bufferDistance = 10;
     const distanceToCarInFront = bilForan.position.x - this.position.x;
 
-    if (distanceToCarInFront < minSafeDistance) {
-      this.velocity.x = 0;
-      this.maxSpeed = 0; // Ensure the car completely stops
-      return;
-    }
+    const timeStep = 0.016; // Assuming a frame rate of 60 FPS, time per frame in seconds
+    const brakingAcceleration = -2; // Deceleration in units per second squared
+    const acceleration = Math.abs(brakingAcceleration)/2.5; // Acceleration in units per second squared
 
     if (distanceToCarInFront < reactionDistance) {
       this.maxSpeed = maxSpeed2; // Reduce max speed when close
-      if (this.velocity.x > this.maxSpeed) {
-        this.velocity.x *= brakingFactor;
+      if (distanceToCarInFront < minSafeDistance) { // For tæt på, stop
+        // Emergency braking
+        this.velocity.x += brakingAcceleration * timeStep;
+        if (this.velocity.x < 0) {
+          this.velocity.x = 0; // Ensure the car doesn't move backward
+        }
+      } else if (this.velocity.x > this.maxSpeed) { // For hurtigt, stop
+        // Gradual braking
+        this.velocity.x += brakingAcceleration * timeStep;
         if (this.velocity.x < this.maxSpeed) {
           this.velocity.x = this.maxSpeed;
         }
@@ -54,7 +57,8 @@ class Car {
     } else {
       this.maxSpeed = normalMaxSpeed; // Allow higher speed when far away
       if (this.velocity.x < this.maxSpeed) {
-        this.velocity.x += accelerationFactor;
+        // Apply acceleration
+        this.velocity.x += acceleration * timeStep;
         if (this.velocity.x > this.maxSpeed) {
           this.velocity.x = this.maxSpeed;
         }
@@ -72,7 +76,7 @@ class Car {
   display() {
     if (frameCount % 3 === 0) {
       // Makes it so it only updates every 3 frames
-      if (this.velocity.x < 0.25) {
+      if (this.velocity.x < 1) {
         this.currentImage = bmwBrakeImage; // Update image every 3 frames
       } else if (this.velocity.x > 1) {
         this.currentImage = bmwAccelImage;

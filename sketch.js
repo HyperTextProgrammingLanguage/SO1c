@@ -203,7 +203,7 @@ function draw() {
   biler.forEach((bil, index) => {
     const li = document.createElement("li");
     li.textContent = `Bil${index + 1}: ${bil.velocity.x.toFixed(2)}`;
-    if (bil.velocity.x < 0.5) {
+    if (bil.velocity.x < 1) {
       li.style.backgroundColor = "#ff0000";
     }
     if (bil.velocity.x > 1) {
