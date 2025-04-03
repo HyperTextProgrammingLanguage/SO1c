@@ -114,8 +114,11 @@ function draw() {
   };
 
   fullscreenButton.onclick = function () {
+    let fs = fullscreen();
+    fullscreen(!fs);
+    /* // Old code for fullscreen
     var elem = document.documentElement;
-
+    
     // Check if currently in fullscreen mode
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
       // Enter fullscreen
@@ -142,6 +145,7 @@ function draw() {
         fullscreenImg.style.transform = "rotate(0deg)";
       }
     }
+  */
   };
 
   startsim.onclick = function () {

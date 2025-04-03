@@ -64,7 +64,7 @@ canvas {
 }
 
 .controlButton:active {
-  background-color: #246028;
+  background-color: #1a711e; /*#246028;*/
   box-shadow: 0 5px #666; /* Kan ikke burge %, lad værd med at skrifte */
   transform: translateY(4px);
 }
@@ -82,7 +82,7 @@ canvas {
   margin-bottom: 9px;
 }
 #bilOversigt:active {
-  background-color: #246028;
+  background-color: #1a711e;
   box-shadow: 0 5px #666; /* Kan ikke burge %, lad værd med at skrifte */
   transform: translateY(4px);
 }
