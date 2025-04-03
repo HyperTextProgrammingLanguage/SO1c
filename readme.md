@@ -12,7 +12,7 @@ SVG fullscreen icon from [Github: apancik/public-domain-icons](https://github.co
 
 SVG X icon from [Github: apancik/public-domain-icons](https://github.com/apancik/public-domain-icons/blob/master/dist/symbol%20cross%20delete%20remove%20multiply.svg)
 
-BMW image from [bmwgroup.com](press.bmwgroup.com)
+BMW image from [bmwgroup.com](https://www.press.bmwgroup.com/global/photo/compilation/T0439308EN/the-new-bmw-m4-coupé-the-new-bmw-m4-convertible)
 
 ## Gyatthub projekt
 
