@@ -116,6 +116,11 @@ function draw() {
   fullscreenButton.onclick = function () {
     let fs = fullscreen();
     fullscreen(!fs);
+    if (!fs) {
+      fullscreenImg.style.transform = "rotate(180deg)";
+    } else {
+      fullscreenImg.style.transform = "rotate(0deg)";
+    }
     /* // Old code for fullscreen
     var elem = document.documentElement;
     

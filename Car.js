@@ -30,7 +30,7 @@ class Car {
 
   tjekBilForan(bilForan) {
     // Variables for reaction, braking, and acceleration
-    const minSafeDistance = 80;
+    const minSafeDistance = 90;
     const reactionDistance = 101;
     const bufferDistance = 10;
     const distanceToCarInFront = bilForan.position.x - this.position.x;
