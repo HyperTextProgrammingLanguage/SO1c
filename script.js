@@ -34,12 +34,8 @@ if (typeof navigator !== "undefined" && navigator.userAgent) {
 function isShit() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
-if (isShit()) {
-  fullscreenButton.style.display = "none"; // Hide button on iPhone
-} else {
-  fullscreenButton.style.display = "inline-block"; // Show button otherwise
-}
 
+// Phone tjek
 function noFull() {
   return !/Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
     navigator.userAgent
@@ -47,6 +43,8 @@ function noFull() {
 }
 if (noFull()) {
   fullscreenButton.style.display = "none"; // Hide button on iPhone
+} else if (isShit()) {
+  fullscreenButton.style.display = "none"; // Show button otherwise
 } else {
   fullscreenButton.style.display = "inline-block"; // Show button otherwise
 }
